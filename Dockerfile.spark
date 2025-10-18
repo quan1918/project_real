@@ -1,0 +1,7 @@
+FROM apache/spark:3.5.1
+
+USER root
+RUN apt-get update && apt-get install -y python3-pip && \
+    pip install --no-cache-dir numpy pandas pyspark==3.5.1 kafka-python psycopg2-binary
+
+USER 185

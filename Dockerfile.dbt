@@ -1,0 +1,16 @@
+FROM python:3.11-slim
+FROM ghcr.io/dbt-labs/dbt-postgres:1.5.0
+
+# Cài đặt các thư viện cần thiết
+RUN pip install --upgrade pip \
+    && pip install dbt-postgres==1.5.0
+# Cài thêm bash để có thể dùng bash -c
+RUN apt-get update && apt-get install -y bash
+
+# Tạo thư mục làm việc
+WORKDIR /usr/app
+
+# Copy project dbt (nếu có)
+COPY ./restaurant_dbt /usr/app
+
+ENTRYPOINT ["dbt"]

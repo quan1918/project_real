@@ -1,0 +1,7 @@
+pandas
+kafka-python
+pyspark
+psycopg2-binary
+pymongo
+requests
+pytest

@@ -1,0 +1,946 @@
+[2025-10-09T04:00:06.994+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-09T04:00:07.080+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: restaurant_analytics.run_spark_stream scheduled__2025-10-09T03:00:00+00:00 [queued]>
+[2025-10-09T04:00:07.105+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: restaurant_analytics.run_spark_stream scheduled__2025-10-09T03:00:00+00:00 [queued]>
+[2025-10-09T04:00:07.116+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-10-09T04:00:07.154+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_spark_stream> on 2025-10-09 03:00:00+00:00
+[2025-10-09T04:00:07.200+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=3538) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-10-09T04:00:07.207+0000] {standard_task_runner.py:64} INFO - Started process 3540 to run task
+[2025-10-09T04:00:07.210+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'restaurant_analytics', 'run_spark_stream', 'scheduled__2025-10-09T03:00:00+00:00', '--job-id', '240', '--raw', '--subdir', 'DAGS_FOLDER/restaurant_dag.py', '--cfg-path', '/tmp/tmpf1aqmgbo']
+[2025-10-09T04:00:07.218+0000] {standard_task_runner.py:91} INFO - Job 240: Subtask run_spark_stream
+[2025-10-09T04:00:07.421+0000] {task_command.py:426} INFO - Running <TaskInstance: restaurant_analytics.run_spark_stream scheduled__2025-10-09T03:00:00+00:00 [running]> on host 01b28d042a8a
+[2025-10-09T04:00:07.728+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='quantruong1918@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='restaurant_analytics' AIRFLOW_CTX_TASK_ID='run_spark_stream' AIRFLOW_CTX_EXECUTION_DATE='2025-10-09T03:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-10-09T03:00:00+00:00'
+[2025-10-09T04:00:07.733+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-09T04:00:07.735+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-10-09T04:00:07.737+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'export PYSPARK_PYTHON=/usr/local/bin/python && export PYSPARK_DRIVER_PYTHON=/usr/local/bin/python && /opt/spark/bin/spark-submit --master local[*] --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.1 /opt/***/dags/spark_streaming.py']
+[2025-10-09T04:00:07.764+0000] {subprocess.py:86} INFO - Output:
+[2025-10-09T04:00:12.845+0000] {subprocess.py:93} INFO - :: loading settings :: url = jar:file:/opt/spark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2025-10-09T04:00:13.029+0000] {subprocess.py:93} INFO - Ivy Default Cache set to: /home/***/.ivy2/cache
+[2025-10-09T04:00:13.031+0000] {subprocess.py:93} INFO - The jars for the packages stored in: /home/***/.ivy2/jars
+[2025-10-09T04:00:13.040+0000] {subprocess.py:93} INFO - org.apache.spark#spark-sql-kafka-0-10_2.12 added as a dependency
+[2025-10-09T04:00:13.043+0000] {subprocess.py:93} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-815d5a6b-367c-46eb-acab-fa15f0e7f4b7;1.0
+[2025-10-09T04:00:13.044+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2025-10-09T04:00:13.409+0000] {subprocess.py:93} INFO - 	found org.apache.spark#spark-sql-kafka-0-10_2.12;3.5.1 in central
+[2025-10-09T04:00:13.551+0000] {subprocess.py:93} INFO - 	found org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.5.1 in central
+[2025-10-09T04:00:13.621+0000] {subprocess.py:93} INFO - 	found org.apache.kafka#kafka-clients;3.4.1 in central
+[2025-10-09T04:00:13.675+0000] {subprocess.py:93} INFO - 	found org.lz4#lz4-java;1.8.0 in central
+[2025-10-09T04:00:13.720+0000] {subprocess.py:93} INFO - 	found org.xerial.snappy#snappy-java;1.1.10.3 in central
+[2025-10-09T04:00:13.770+0000] {subprocess.py:93} INFO - 	found org.slf4j#slf4j-api;2.0.7 in central
+[2025-10-09T04:00:13.855+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-client-runtime;3.3.4 in central
+[2025-10-09T04:00:14.017+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-client-api;3.3.4 in central
+[2025-10-09T04:00:14.252+0000] {subprocess.py:93} INFO - 	found commons-logging#commons-logging;1.1.3 in central
+[2025-10-09T04:00:14.416+0000] {subprocess.py:93} INFO - 	found com.google.code.findbugs#jsr305;3.0.0 in central
+[2025-10-09T04:00:14.499+0000] {subprocess.py:93} INFO - 	found org.apache.commons#commons-pool2;2.11.1 in central
+[2025-10-09T04:00:14.644+0000] {subprocess.py:93} INFO - :: resolution report :: resolve 1540ms :: artifacts dl 61ms
+[2025-10-09T04:00:14.645+0000] {subprocess.py:93} INFO - 	:: modules in use:
+[2025-10-09T04:00:14.646+0000] {subprocess.py:93} INFO - 	com.google.code.findbugs#jsr305;3.0.0 from central in [default]
+[2025-10-09T04:00:14.647+0000] {subprocess.py:93} INFO - 	commons-logging#commons-logging;1.1.3 from central in [default]
+[2025-10-09T04:00:14.649+0000] {subprocess.py:93} INFO - 	org.apache.commons#commons-pool2;2.11.1 from central in [default]
+[2025-10-09T04:00:14.650+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-client-api;3.3.4 from central in [default]
+[2025-10-09T04:00:14.651+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-client-runtime;3.3.4 from central in [default]
+[2025-10-09T04:00:14.657+0000] {subprocess.py:93} INFO - 	org.apache.kafka#kafka-clients;3.4.1 from central in [default]
+[2025-10-09T04:00:14.659+0000] {subprocess.py:93} INFO - 	org.apache.spark#spark-sql-kafka-0-10_2.12;3.5.1 from central in [default]
+[2025-10-09T04:00:14.660+0000] {subprocess.py:93} INFO - 	org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.5.1 from central in [default]
+[2025-10-09T04:00:14.661+0000] {subprocess.py:93} INFO - 	org.lz4#lz4-java;1.8.0 from central in [default]
+[2025-10-09T04:00:14.662+0000] {subprocess.py:93} INFO - 	org.slf4j#slf4j-api;2.0.7 from central in [default]
+[2025-10-09T04:00:14.664+0000] {subprocess.py:93} INFO - 	org.xerial.snappy#snappy-java;1.1.10.3 from central in [default]
+[2025-10-09T04:00:14.665+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-10-09T04:00:14.666+0000] {subprocess.py:93} INFO - 	|                  |            modules            ||   artifacts   |
+[2025-10-09T04:00:14.667+0000] {subprocess.py:93} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2025-10-09T04:00:14.668+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-10-09T04:00:14.669+0000] {subprocess.py:93} INFO - 	|      default     |   11  |   0   |   0   |   0   ||   11  |   0   |
+[2025-10-09T04:00:14.670+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-10-09T04:00:14.672+0000] {subprocess.py:93} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-815d5a6b-367c-46eb-acab-fa15f0e7f4b7
+[2025-10-09T04:00:14.674+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2025-10-09T04:00:14.694+0000] {subprocess.py:93} INFO - 	0 artifacts copied, 11 already retrieved (0kB/26ms)
+[2025-10-09T04:00:15.148+0000] {subprocess.py:93} INFO - 25/10/09 04:00:15 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-10-09T04:00:22.428+0000] {subprocess.py:93} INFO - 25/10/09 04:00:22 INFO SparkContext: Running Spark version 3.5.1
+[2025-10-09T04:00:22.431+0000] {subprocess.py:93} INFO - 25/10/09 04:00:22 INFO SparkContext: OS info Linux, 6.6.87.1-microsoft-standard-WSL2, amd64
+[2025-10-09T04:00:22.436+0000] {subprocess.py:93} INFO - 25/10/09 04:00:22 INFO SparkContext: Java version 17.0.16
+[2025-10-09T04:00:22.524+0000] {subprocess.py:93} INFO - 25/10/09 04:00:22 INFO ResourceUtils: ==============================================================
+[2025-10-09T04:00:22.525+0000] {subprocess.py:93} INFO - 25/10/09 04:00:22 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2025-10-09T04:00:22.527+0000] {subprocess.py:93} INFO - 25/10/09 04:00:22 INFO ResourceUtils: ==============================================================
+[2025-10-09T04:00:22.531+0000] {subprocess.py:93} INFO - 25/10/09 04:00:22 INFO SparkContext: Submitted application: RestaurantStreaming
+[2025-10-09T04:00:22.593+0000] {subprocess.py:93} INFO - 25/10/09 04:00:22 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2025-10-09T04:00:22.619+0000] {subprocess.py:93} INFO - 25/10/09 04:00:22 INFO ResourceProfile: Limiting resource is cpu
+[2025-10-09T04:00:22.623+0000] {subprocess.py:93} INFO - 25/10/09 04:00:22 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2025-10-09T04:00:22.786+0000] {subprocess.py:93} INFO - 25/10/09 04:00:22 INFO SecurityManager: Changing view acls to: ***
+[2025-10-09T04:00:22.788+0000] {subprocess.py:93} INFO - 25/10/09 04:00:22 INFO SecurityManager: Changing modify acls to: ***
+[2025-10-09T04:00:22.791+0000] {subprocess.py:93} INFO - 25/10/09 04:00:22 INFO SecurityManager: Changing view acls groups to:
+[2025-10-09T04:00:22.794+0000] {subprocess.py:93} INFO - 25/10/09 04:00:22 INFO SecurityManager: Changing modify acls groups to:
+[2025-10-09T04:00:22.796+0000] {subprocess.py:93} INFO - 25/10/09 04:00:22 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: ***; groups with view permissions: EMPTY; users with modify permissions: ***; groups with modify permissions: EMPTY
+[2025-10-09T04:00:23.455+0000] {subprocess.py:93} INFO - 25/10/09 04:00:23 INFO Utils: Successfully started service 'sparkDriver' on port 36691.
+[2025-10-09T04:00:23.568+0000] {subprocess.py:93} INFO - 25/10/09 04:00:23 INFO SparkEnv: Registering MapOutputTracker
+[2025-10-09T04:00:23.663+0000] {subprocess.py:93} INFO - 25/10/09 04:00:23 INFO SparkEnv: Registering BlockManagerMaster
+[2025-10-09T04:00:23.719+0000] {subprocess.py:93} INFO - 25/10/09 04:00:23 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2025-10-09T04:00:23.720+0000] {subprocess.py:93} INFO - 25/10/09 04:00:23 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2025-10-09T04:00:23.733+0000] {subprocess.py:93} INFO - 25/10/09 04:00:23 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2025-10-09T04:00:23.801+0000] {subprocess.py:93} INFO - 25/10/09 04:00:23 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-60d13b3b-c19e-4faf-991a-decb7f2411db
+[2025-10-09T04:00:23.853+0000] {subprocess.py:93} INFO - 25/10/09 04:00:23 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2025-10-09T04:00:23.898+0000] {subprocess.py:93} INFO - 25/10/09 04:00:23 INFO SparkEnv: Registering OutputCommitCoordinator
+[2025-10-09T04:00:24.283+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2025-10-09T04:00:24.499+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2025-10-09T04:00:24.641+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar at spark://01b28d042a8a:36691/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar with timestamp 1759982422393
+[2025-10-09T04:00:24.647+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar at spark://01b28d042a8a:36691/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar with timestamp 1759982422393
+[2025-10-09T04:00:24.648+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar at spark://01b28d042a8a:36691/jars/org.apache.kafka_kafka-clients-3.4.1.jar with timestamp 1759982422393
+[2025-10-09T04:00:24.649+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar at spark://01b28d042a8a:36691/jars/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1759982422393
+[2025-10-09T04:00:24.650+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar at spark://01b28d042a8a:36691/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1759982422393
+[2025-10-09T04:00:24.651+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar at spark://01b28d042a8a:36691/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar with timestamp 1759982422393
+[2025-10-09T04:00:24.653+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar at spark://01b28d042a8a:36691/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1759982422393
+[2025-10-09T04:00:24.654+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar at spark://01b28d042a8a:36691/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar with timestamp 1759982422393
+[2025-10-09T04:00:24.655+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar at spark://01b28d042a8a:36691/jars/org.slf4j_slf4j-api-2.0.7.jar with timestamp 1759982422393
+[2025-10-09T04:00:24.658+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar at spark://01b28d042a8a:36691/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar with timestamp 1759982422393
+[2025-10-09T04:00:24.659+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar at spark://01b28d042a8a:36691/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1759982422393
+[2025-10-09T04:00:24.666+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar at file:///home/***/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar with timestamp 1759982422393
+[2025-10-09T04:00:24.669+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar
+[2025-10-09T04:00:24.715+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar at file:///home/***/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar with timestamp 1759982422393
+[2025-10-09T04:00:24.716+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar
+[2025-10-09T04:00:24.735+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar at file:///home/***/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar with timestamp 1759982422393
+[2025-10-09T04:00:24.736+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.kafka_kafka-clients-3.4.1.jar
+[2025-10-09T04:00:24.969+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO SparkContext: Added file file:///home/***/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar at file:///home/***/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1759982422393
+[2025-10-09T04:00:24.970+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO Utils: Copying /home/***/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/com.google.code.findbugs_jsr305-3.0.0.jar
+[2025-10-09T04:00:24.989+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar at file:///home/***/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1759982422393
+[2025-10-09T04:00:24.994+0000] {subprocess.py:93} INFO - 25/10/09 04:00:24 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.commons_commons-pool2-2.11.1.jar
+[2025-10-09T04:00:25.030+0000] {subprocess.py:93} INFO - 25/10/09 04:00:25 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar at file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar with timestamp 1759982422393
+[2025-10-09T04:00:25.038+0000] {subprocess.py:93} INFO - 25/10/09 04:00:25 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar
+[2025-10-09T04:00:26.505+0000] {subprocess.py:93} INFO - 25/10/09 04:00:26 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar at file:///home/***/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1759982422393
+[2025-10-09T04:00:26.516+0000] {subprocess.py:93} INFO - 25/10/09 04:00:26 INFO Utils: Copying /home/***/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.lz4_lz4-java-1.8.0.jar
+[2025-10-09T04:00:26.554+0000] {subprocess.py:93} INFO - 25/10/09 04:00:26 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar at file:///home/***/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar with timestamp 1759982422393
+[2025-10-09T04:00:26.562+0000] {subprocess.py:93} INFO - 25/10/09 04:00:26 INFO Utils: Copying /home/***/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.xerial.snappy_snappy-java-1.1.10.3.jar
+[2025-10-09T04:00:26.635+0000] {subprocess.py:93} INFO - 25/10/09 04:00:26 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar at file:///home/***/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar with timestamp 1759982422393
+[2025-10-09T04:00:26.637+0000] {subprocess.py:93} INFO - 25/10/09 04:00:26 INFO Utils: Copying /home/***/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.slf4j_slf4j-api-2.0.7.jar
+[2025-10-09T04:00:26.662+0000] {subprocess.py:93} INFO - 25/10/09 04:00:26 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar at file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar with timestamp 1759982422393
+[2025-10-09T04:00:26.664+0000] {subprocess.py:93} INFO - 25/10/09 04:00:26 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.hadoop_hadoop-client-api-3.3.4.jar
+[2025-10-09T04:00:27.331+0000] {subprocess.py:93} INFO - 25/10/09 04:00:27 INFO SparkContext: Added file file:///home/***/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar at file:///home/***/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1759982422393
+[2025-10-09T04:00:27.352+0000] {subprocess.py:93} INFO - 25/10/09 04:00:27 INFO Utils: Copying /home/***/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/commons-logging_commons-logging-1.1.3.jar
+[2025-10-09T04:00:27.977+0000] {subprocess.py:93} INFO - 25/10/09 04:00:27 INFO Executor: Starting executor ID driver on host 01b28d042a8a
+[2025-10-09T04:00:27.997+0000] {subprocess.py:93} INFO - 25/10/09 04:00:27 INFO Executor: OS info Linux, 6.6.87.1-microsoft-standard-WSL2, amd64
+[2025-10-09T04:00:27.999+0000] {subprocess.py:93} INFO - 25/10/09 04:00:27 INFO Executor: Java version 17.0.16
+[2025-10-09T04:00:28.032+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+[2025-10-09T04:00:28.044+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@5fce4f96 for default.
+[2025-10-09T04:00:28.139+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar with timestamp 1759982422393
+[2025-10-09T04:00:28.350+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Utils: /home/***/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar
+[2025-10-09T04:00:28.376+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar with timestamp 1759982422393
+[2025-10-09T04:00:28.509+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Utils: /home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar
+[2025-10-09T04:00:28.539+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar with timestamp 1759982422393
+[2025-10-09T04:00:28.616+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Utils: /home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.hadoop_hadoop-client-api-3.3.4.jar
+[2025-10-09T04:00:28.643+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar with timestamp 1759982422393
+[2025-10-09T04:00:28.647+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Utils: /home/***/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar
+[2025-10-09T04:00:28.664+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Executor: Fetching file:///home/***/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1759982422393
+[2025-10-09T04:00:28.672+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Utils: /home/***/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/com.google.code.findbugs_jsr305-3.0.0.jar
+[2025-10-09T04:00:28.678+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1759982422393
+[2025-10-09T04:00:28.682+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Utils: /home/***/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.lz4_lz4-java-1.8.0.jar
+[2025-10-09T04:00:28.703+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar with timestamp 1759982422393
+[2025-10-09T04:00:28.704+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Utils: /home/***/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.slf4j_slf4j-api-2.0.7.jar
+[2025-10-09T04:00:28.719+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1759982422393
+[2025-10-09T04:00:28.721+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Utils: /home/***/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.commons_commons-pool2-2.11.1.jar
+[2025-10-09T04:00:28.740+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Executor: Fetching file:///home/***/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1759982422393
+[2025-10-09T04:00:28.742+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Utils: /home/***/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/commons-logging_commons-logging-1.1.3.jar
+[2025-10-09T04:00:28.763+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar with timestamp 1759982422393
+[2025-10-09T04:00:28.778+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Utils: /home/***/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.xerial.snappy_snappy-java-1.1.10.3.jar
+[2025-10-09T04:00:28.800+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar with timestamp 1759982422393
+[2025-10-09T04:00:28.829+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Utils: /home/***/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.kafka_kafka-clients-3.4.1.jar
+[2025-10-09T04:00:28.874+0000] {subprocess.py:93} INFO - 25/10/09 04:00:28 INFO Executor: Fetching spark://01b28d042a8a:36691/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar with timestamp 1759982422393
+[2025-10-09T04:00:29.098+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO TransportClientFactory: Successfully created connection to 01b28d042a8a/172.21.0.4:36691 after 165 ms (0 ms spent in bootstraps)
+[2025-10-09T04:00:29.202+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Utils: Fetching spark://01b28d042a8a:36691/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp14484218925982757959.tmp
+[2025-10-09T04:00:29.417+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Utils: /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp14484218925982757959.tmp has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar
+[2025-10-09T04:00:29.453+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Executor: Adding file:/tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar to class loader default
+[2025-10-09T04:00:29.459+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Executor: Fetching spark://01b28d042a8a:36691/jars/org.slf4j_slf4j-api-2.0.7.jar with timestamp 1759982422393
+[2025-10-09T04:00:29.463+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Utils: Fetching spark://01b28d042a8a:36691/jars/org.slf4j_slf4j-api-2.0.7.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp131279468886344315.tmp
+[2025-10-09T04:00:29.469+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Utils: /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp131279468886344315.tmp has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.slf4j_slf4j-api-2.0.7.jar
+[2025-10-09T04:00:29.481+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Executor: Adding file:/tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.slf4j_slf4j-api-2.0.7.jar to class loader default
+[2025-10-09T04:00:29.483+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Executor: Fetching spark://01b28d042a8a:36691/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar with timestamp 1759982422393
+[2025-10-09T04:00:29.484+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Utils: Fetching spark://01b28d042a8a:36691/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp16972507800871628249.tmp
+[2025-10-09T04:00:29.599+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Utils: /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp16972507800871628249.tmp has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.xerial.snappy_snappy-java-1.1.10.3.jar
+[2025-10-09T04:00:29.618+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Executor: Adding file:/tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.xerial.snappy_snappy-java-1.1.10.3.jar to class loader default
+[2025-10-09T04:00:29.621+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Executor: Fetching spark://01b28d042a8a:36691/jars/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1759982422393
+[2025-10-09T04:00:29.623+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Utils: Fetching spark://01b28d042a8a:36691/jars/com.google.code.findbugs_jsr305-3.0.0.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp175111086582796935.tmp
+[2025-10-09T04:00:29.636+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Utils: /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp175111086582796935.tmp has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/com.google.code.findbugs_jsr305-3.0.0.jar
+[2025-10-09T04:00:29.663+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Executor: Adding file:/tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/com.google.code.findbugs_jsr305-3.0.0.jar to class loader default
+[2025-10-09T04:00:29.665+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Executor: Fetching spark://01b28d042a8a:36691/jars/org.apache.kafka_kafka-clients-3.4.1.jar with timestamp 1759982422393
+[2025-10-09T04:00:29.672+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Utils: Fetching spark://01b28d042a8a:36691/jars/org.apache.kafka_kafka-clients-3.4.1.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp164703566129895184.tmp
+[2025-10-09T04:00:29.925+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Utils: /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp164703566129895184.tmp has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.kafka_kafka-clients-3.4.1.jar
+[2025-10-09T04:00:29.950+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Executor: Adding file:/tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.kafka_kafka-clients-3.4.1.jar to class loader default
+[2025-10-09T04:00:29.952+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Executor: Fetching spark://01b28d042a8a:36691/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1759982422393
+[2025-10-09T04:00:29.967+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Utils: Fetching spark://01b28d042a8a:36691/jars/commons-logging_commons-logging-1.1.3.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp16675783145336882693.tmp
+[2025-10-09T04:00:29.972+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Utils: /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp16675783145336882693.tmp has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/commons-logging_commons-logging-1.1.3.jar
+[2025-10-09T04:00:30.002+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Executor: Adding file:/tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/commons-logging_commons-logging-1.1.3.jar to class loader default
+[2025-10-09T04:00:30.006+0000] {subprocess.py:93} INFO - 25/10/09 04:00:29 INFO Executor: Fetching spark://01b28d042a8a:36691/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1759982422393
+[2025-10-09T04:00:30.014+0000] {subprocess.py:93} INFO - 25/10/09 04:00:30 INFO Utils: Fetching spark://01b28d042a8a:36691/jars/org.apache.commons_commons-pool2-2.11.1.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp14754345112502237368.tmp
+[2025-10-09T04:00:30.016+0000] {subprocess.py:93} INFO - 25/10/09 04:00:30 INFO Utils: /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp14754345112502237368.tmp has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.commons_commons-pool2-2.11.1.jar
+[2025-10-09T04:00:30.045+0000] {subprocess.py:93} INFO - 25/10/09 04:00:30 INFO Executor: Adding file:/tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.commons_commons-pool2-2.11.1.jar to class loader default
+[2025-10-09T04:00:30.052+0000] {subprocess.py:93} INFO - 25/10/09 04:00:30 INFO Executor: Fetching spark://01b28d042a8a:36691/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1759982422393
+[2025-10-09T04:00:30.055+0000] {subprocess.py:93} INFO - 25/10/09 04:00:30 INFO Utils: Fetching spark://01b28d042a8a:36691/jars/org.lz4_lz4-java-1.8.0.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp11694092244515412594.tmp
+[2025-10-09T04:00:30.095+0000] {subprocess.py:93} INFO - 25/10/09 04:00:30 INFO Utils: /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp11694092244515412594.tmp has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.lz4_lz4-java-1.8.0.jar
+[2025-10-09T04:00:30.146+0000] {subprocess.py:93} INFO - 25/10/09 04:00:30 INFO Executor: Adding file:/tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.lz4_lz4-java-1.8.0.jar to class loader default
+[2025-10-09T04:00:30.148+0000] {subprocess.py:93} INFO - 25/10/09 04:00:30 INFO Executor: Fetching spark://01b28d042a8a:36691/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar with timestamp 1759982422393
+[2025-10-09T04:00:30.149+0000] {subprocess.py:93} INFO - 25/10/09 04:00:30 INFO Utils: Fetching spark://01b28d042a8a:36691/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp8593451224543870329.tmp
+[2025-10-09T04:00:30.162+0000] {subprocess.py:93} INFO - 25/10/09 04:00:30 INFO Utils: /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp8593451224543870329.tmp has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar
+[2025-10-09T04:00:30.191+0000] {subprocess.py:93} INFO - 25/10/09 04:00:30 INFO Executor: Adding file:/tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar to class loader default
+[2025-10-09T04:00:30.202+0000] {subprocess.py:93} INFO - 25/10/09 04:00:30 INFO Executor: Fetching spark://01b28d042a8a:36691/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar with timestamp 1759982422393
+[2025-10-09T04:00:30.204+0000] {subprocess.py:93} INFO - 25/10/09 04:00:30 INFO Utils: Fetching spark://01b28d042a8a:36691/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp17380791015728078441.tmp
+[2025-10-09T04:00:31.460+0000] {subprocess.py:93} INFO - 25/10/09 04:00:31 INFO Utils: /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp17380791015728078441.tmp has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar
+[2025-10-09T04:00:31.480+0000] {subprocess.py:93} INFO - 25/10/09 04:00:31 INFO Executor: Adding file:/tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar to class loader default
+[2025-10-09T04:00:31.481+0000] {subprocess.py:93} INFO - 25/10/09 04:00:31 INFO Executor: Fetching spark://01b28d042a8a:36691/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar with timestamp 1759982422393
+[2025-10-09T04:00:31.483+0000] {subprocess.py:93} INFO - 25/10/09 04:00:31 INFO Utils: Fetching spark://01b28d042a8a:36691/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp2474680032295196432.tmp
+[2025-10-09T04:00:31.995+0000] {subprocess.py:93} INFO - 25/10/09 04:00:31 INFO Utils: /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/fetchFileTemp2474680032295196432.tmp has been previously copied to /tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.hadoop_hadoop-client-api-3.3.4.jar
+[2025-10-09T04:00:32.019+0000] {subprocess.py:93} INFO - 25/10/09 04:00:32 INFO Executor: Adding file:/tmp/spark-e3a862de-9a60-4a9e-b3e4-70734da8cdeb/userFiles-8a1b29f1-e15c-49a1-95b1-c7828ca1c170/org.apache.hadoop_hadoop-client-api-3.3.4.jar to class loader default
+[2025-10-09T04:00:32.055+0000] {subprocess.py:93} INFO - 25/10/09 04:00:32 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 40409.
+[2025-10-09T04:00:32.062+0000] {subprocess.py:93} INFO - 25/10/09 04:00:32 INFO NettyBlockTransferService: Server created on 01b28d042a8a:40409
+[2025-10-09T04:00:32.080+0000] {subprocess.py:93} INFO - 25/10/09 04:00:32 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2025-10-09T04:00:32.118+0000] {subprocess.py:93} INFO - 25/10/09 04:00:32 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 01b28d042a8a, 40409, None)
+[2025-10-09T04:00:32.140+0000] {subprocess.py:93} INFO - 25/10/09 04:00:32 INFO BlockManagerMasterEndpoint: Registering block manager 01b28d042a8a:40409 with 434.4 MiB RAM, BlockManagerId(driver, 01b28d042a8a, 40409, None)
+[2025-10-09T04:00:32.152+0000] {subprocess.py:93} INFO - 25/10/09 04:00:32 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 01b28d042a8a, 40409, None)
+[2025-10-09T04:00:32.175+0000] {subprocess.py:93} INFO - 25/10/09 04:00:32 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 01b28d042a8a, 40409, None)
+[2025-10-09T04:00:33.697+0000] {subprocess.py:93} INFO - 25/10/09 04:00:33 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+[2025-10-09T04:00:33.704+0000] {subprocess.py:93} INFO - 25/10/09 04:00:33 INFO SharedState: Warehouse path is 'file:/tmp/***tmpj_eu2ypn/spark-warehouse'.
+[2025-10-09T04:00:41.100+0000] {subprocess.py:93} INFO - 25/10/09 04:00:41 INFO StateStoreCoordinatorRef: Registered StateStoreCoordinator endpoint
+[2025-10-09T04:00:41.221+0000] {subprocess.py:93} INFO - 25/10/09 04:00:41 INFO ResolveWriteToStream: Checkpoint root /opt/***/checkpoints/orders_weather/kpi resolved to file:/opt/***/checkpoints/orders_weather/kpi.
+[2025-10-09T04:00:41.224+0000] {subprocess.py:93} INFO - 25/10/09 04:00:41 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[2025-10-09T04:00:41.655+0000] {subprocess.py:93} INFO - 25/10/09 04:00:41 INFO MicroBatchExecution: Starting [id = 8c50bf01-a365-4e80-a390-cc640f6a9fc8, runId = eb5b4b08-9293-4699-8ee5-74f6183ba0b1]. Use file:/opt/***/checkpoints/orders_weather/kpi to store the query checkpoint.
+[2025-10-09T04:00:41.671+0000] {subprocess.py:93} INFO - Model not found at /opt/models/revenue_model
+[2025-10-09T04:00:41.693+0000] {subprocess.py:93} INFO - 25/10/09 04:00:41 INFO MicroBatchExecution: Reading table [org.apache.spark.sql.kafka010.KafkaSourceProvider$KafkaTable@3abbf2fd] from DataSourceV2 named 'kafka' [org.apache.spark.sql.kafka010.KafkaSourceProvider@218029c1]
+[2025-10-09T04:00:41.842+0000] {subprocess.py:93} INFO - 25/10/09 04:00:41 INFO OffsetSeqLog: BatchIds found from listing: 0
+[2025-10-09T04:00:41.878+0000] {subprocess.py:93} INFO - 25/10/09 04:00:41 INFO OffsetSeqLog: Getting latest batch 0
+[2025-10-09T04:00:41.958+0000] {subprocess.py:93} INFO - 25/10/09 04:00:41 INFO OffsetSeqLog: BatchIds found from listing: 0
+[2025-10-09T04:00:41.960+0000] {subprocess.py:93} INFO - 25/10/09 04:00:41 INFO OffsetSeqLog: Getting latest batch 0
+[2025-10-09T04:00:41.979+0000] {subprocess.py:93} INFO - 25/10/09 04:00:41 INFO CommitLog: BatchIds found from listing: 0
+[2025-10-09T04:00:41.985+0000] {subprocess.py:93} INFO - 25/10/09 04:00:41 INFO CommitLog: Getting latest batch 0
+[2025-10-09T04:00:42.010+0000] {subprocess.py:93} INFO - 25/10/09 04:00:42 INFO MicroBatchExecution: Resuming at batch 1 with committed offsets {KafkaV2[Subscribe[orders, weather]]: {"orders":{"0":112},"weather":{"0":4}}} and available offsets {KafkaV2[Subscribe[orders, weather]]: {"orders":{"0":112},"weather":{"0":4}}}
+[2025-10-09T04:00:42.014+0000] {subprocess.py:93} INFO - 25/10/09 04:00:42 INFO MicroBatchExecution: Stream started from {KafkaV2[Subscribe[orders, weather]]: {"orders":{"0":112},"weather":{"0":4}}}
+[2025-10-09T04:00:42.179+0000] {subprocess.py:93} INFO - 25/10/09 04:00:42 INFO AdminClientConfig: AdminClientConfig values:
+[2025-10-09T04:00:42.183+0000] {subprocess.py:93} INFO - 	auto.include.jmx.reporter = true
+[2025-10-09T04:00:42.184+0000] {subprocess.py:93} INFO - 	bootstrap.servers = [kafka:9092]
+[2025-10-09T04:00:42.185+0000] {subprocess.py:93} INFO - 	client.dns.lookup = use_all_dns_ips
+[2025-10-09T04:00:42.186+0000] {subprocess.py:93} INFO - 	client.id =
+[2025-10-09T04:00:42.188+0000] {subprocess.py:93} INFO - 	connections.max.idle.ms = 300000
+[2025-10-09T04:00:42.189+0000] {subprocess.py:93} INFO - 	default.api.timeout.ms = 60000
+[2025-10-09T04:00:42.190+0000] {subprocess.py:93} INFO - 	metadata.max.age.ms = 300000
+[2025-10-09T04:00:42.194+0000] {subprocess.py:93} INFO - 	metric.reporters = []
+[2025-10-09T04:00:42.196+0000] {subprocess.py:93} INFO - 	metrics.num.samples = 2
+[2025-10-09T04:00:42.207+0000] {subprocess.py:93} INFO - 	metrics.recording.level = INFO
+[2025-10-09T04:00:42.209+0000] {subprocess.py:93} INFO - 	metrics.sample.window.ms = 30000
+[2025-10-09T04:00:42.210+0000] {subprocess.py:93} INFO - 	receive.buffer.bytes = 65536
+[2025-10-09T04:00:42.215+0000] {subprocess.py:93} INFO - 	reconnect.backoff.max.ms = 1000
+[2025-10-09T04:00:42.218+0000] {subprocess.py:93} INFO - 	reconnect.backoff.ms = 50
+[2025-10-09T04:00:42.219+0000] {subprocess.py:93} INFO - 	request.timeout.ms = 30000
+[2025-10-09T04:00:42.223+0000] {subprocess.py:93} INFO - 	retries = 2147483647
+[2025-10-09T04:00:42.224+0000] {subprocess.py:93} INFO - 	retry.backoff.ms = 100
+[2025-10-09T04:00:42.227+0000] {subprocess.py:93} INFO - 	sasl.client.callback.handler.class = null
+[2025-10-09T04:00:42.232+0000] {subprocess.py:93} INFO - 	sasl.jaas.config = null
+[2025-10-09T04:00:42.235+0000] {subprocess.py:93} INFO - 	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+[2025-10-09T04:00:42.238+0000] {subprocess.py:93} INFO - 	sasl.kerberos.min.time.before.relogin = 60000
+[2025-10-09T04:00:42.239+0000] {subprocess.py:93} INFO - 	sasl.kerberos.service.name = null
+[2025-10-09T04:00:42.240+0000] {subprocess.py:93} INFO - 	sasl.kerberos.ticket.renew.jitter = 0.05
+[2025-10-09T04:00:42.247+0000] {subprocess.py:93} INFO - 	sasl.kerberos.ticket.renew.window.factor = 0.8
+[2025-10-09T04:00:42.250+0000] {subprocess.py:93} INFO - 	sasl.login.callback.handler.class = null
+[2025-10-09T04:00:42.254+0000] {subprocess.py:93} INFO - 	sasl.login.class = null
+[2025-10-09T04:00:42.260+0000] {subprocess.py:93} INFO - 	sasl.login.connect.timeout.ms = null
+[2025-10-09T04:00:42.263+0000] {subprocess.py:93} INFO - 	sasl.login.read.timeout.ms = null
+[2025-10-09T04:00:42.268+0000] {subprocess.py:93} INFO - 	sasl.login.refresh.buffer.seconds = 300
+[2025-10-09T04:00:42.269+0000] {subprocess.py:93} INFO - 	sasl.login.refresh.min.period.seconds = 60
+[2025-10-09T04:00:42.273+0000] {subprocess.py:93} INFO - 	sasl.login.refresh.window.factor = 0.8
+[2025-10-09T04:00:42.276+0000] {subprocess.py:93} INFO - 	sasl.login.refresh.window.jitter = 0.05
+[2025-10-09T04:00:42.277+0000] {subprocess.py:93} INFO - 	sasl.login.retry.backoff.max.ms = 10000
+[2025-10-09T04:00:42.278+0000] {subprocess.py:93} INFO - 	sasl.login.retry.backoff.ms = 100
+[2025-10-09T04:00:42.279+0000] {subprocess.py:93} INFO - 	sasl.mechanism = GSSAPI
+[2025-10-09T04:00:42.280+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.clock.skew.seconds = 30
+[2025-10-09T04:00:42.281+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.expected.audience = null
+[2025-10-09T04:00:42.283+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.expected.issuer = null
+[2025-10-09T04:00:42.284+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+[2025-10-09T04:00:42.286+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+[2025-10-09T04:00:42.287+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+[2025-10-09T04:00:42.290+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.jwks.endpoint.url = null
+[2025-10-09T04:00:42.292+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.scope.claim.name = scope
+[2025-10-09T04:00:42.293+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.sub.claim.name = sub
+[2025-10-09T04:00:42.294+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.token.endpoint.url = null
+[2025-10-09T04:00:42.295+0000] {subprocess.py:93} INFO - 	security.protocol = PLAINTEXT
+[2025-10-09T04:00:42.297+0000] {subprocess.py:93} INFO - 	security.providers = null
+[2025-10-09T04:00:42.298+0000] {subprocess.py:93} INFO - 	send.buffer.bytes = 131072
+[2025-10-09T04:00:42.299+0000] {subprocess.py:93} INFO - 	socket.connection.setup.timeout.max.ms = 30000
+[2025-10-09T04:00:42.300+0000] {subprocess.py:93} INFO - 	socket.connection.setup.timeout.ms = 10000
+[2025-10-09T04:00:42.302+0000] {subprocess.py:93} INFO - 	ssl.cipher.suites = null
+[2025-10-09T04:00:42.305+0000] {subprocess.py:93} INFO - 	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+[2025-10-09T04:00:42.306+0000] {subprocess.py:93} INFO - 	ssl.endpoint.identification.algorithm = https
+[2025-10-09T04:00:42.307+0000] {subprocess.py:93} INFO - 	ssl.engine.factory.class = null
+[2025-10-09T04:00:42.309+0000] {subprocess.py:93} INFO - 	ssl.key.password = null
+[2025-10-09T04:00:42.310+0000] {subprocess.py:93} INFO - 	ssl.keymanager.algorithm = SunX509
+[2025-10-09T04:00:42.312+0000] {subprocess.py:93} INFO - 	ssl.keystore.certificate.chain = null
+[2025-10-09T04:00:42.316+0000] {subprocess.py:93} INFO - 	ssl.keystore.key = null
+[2025-10-09T04:00:42.321+0000] {subprocess.py:93} INFO - 	ssl.keystore.location = null
+[2025-10-09T04:00:42.325+0000] {subprocess.py:93} INFO - 	ssl.keystore.password = null
+[2025-10-09T04:00:42.333+0000] {subprocess.py:93} INFO - 	ssl.keystore.type = JKS
+[2025-10-09T04:00:42.338+0000] {subprocess.py:93} INFO - 	ssl.protocol = TLSv1.3
+[2025-10-09T04:00:42.339+0000] {subprocess.py:93} INFO - 	ssl.provider = null
+[2025-10-09T04:00:42.341+0000] {subprocess.py:93} INFO - 	ssl.secure.random.implementation = null
+[2025-10-09T04:00:42.344+0000] {subprocess.py:93} INFO - 	ssl.trustmanager.algorithm = PKIX
+[2025-10-09T04:00:42.346+0000] {subprocess.py:93} INFO - 	ssl.truststore.certificates = null
+[2025-10-09T04:00:42.347+0000] {subprocess.py:93} INFO - 	ssl.truststore.location = null
+[2025-10-09T04:00:42.352+0000] {subprocess.py:93} INFO - 	ssl.truststore.password = null
+[2025-10-09T04:00:42.355+0000] {subprocess.py:93} INFO - 	ssl.truststore.type = JKS
+[2025-10-09T04:00:42.357+0000] {subprocess.py:93} INFO - 
+[2025-10-09T04:00:42.455+0000] {subprocess.py:93} INFO - 25/10/09 04:00:42 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+[2025-10-09T04:00:42.460+0000] {subprocess.py:93} INFO - 25/10/09 04:00:42 INFO AppInfoParser: Kafka version: 3.4.1
+[2025-10-09T04:00:42.461+0000] {subprocess.py:93} INFO - 25/10/09 04:00:42 INFO AppInfoParser: Kafka commitId: 8a516edc2755df89
+[2025-10-09T04:00:42.462+0000] {subprocess.py:93} INFO - 25/10/09 04:00:42 INFO AppInfoParser: Kafka startTimeMs: 1759982442455
+[2025-10-09T04:00:53.590+0000] {subprocess.py:93} INFO - 25/10/09 04:00:53 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:01:03.627+0000] {subprocess.py:93} INFO - 25/10/09 04:01:03 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:01:13.620+0000] {subprocess.py:93} INFO - 25/10/09 04:01:13 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:01:23.624+0000] {subprocess.py:93} INFO - 25/10/09 04:01:23 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:01:33.626+0000] {subprocess.py:93} INFO - 25/10/09 04:01:33 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:01:43.638+0000] {subprocess.py:93} INFO - 25/10/09 04:01:43 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:01:53.643+0000] {subprocess.py:93} INFO - 25/10/09 04:01:53 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:02:03.653+0000] {subprocess.py:93} INFO - 25/10/09 04:02:03 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:02:13.662+0000] {subprocess.py:93} INFO - 25/10/09 04:02:13 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:02:23.671+0000] {subprocess.py:93} INFO - 25/10/09 04:02:23 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:02:33.676+0000] {subprocess.py:93} INFO - 25/10/09 04:02:33 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:02:43.678+0000] {subprocess.py:93} INFO - 25/10/09 04:02:43 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:02:53.686+0000] {subprocess.py:93} INFO - 25/10/09 04:02:53 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:03:03.685+0000] {subprocess.py:93} INFO - 25/10/09 04:03:03 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:03:13.695+0000] {subprocess.py:93} INFO - 25/10/09 04:03:13 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:03:23.698+0000] {subprocess.py:93} INFO - 25/10/09 04:03:23 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:03:33.709+0000] {subprocess.py:93} INFO - 25/10/09 04:03:33 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:03:43.716+0000] {subprocess.py:93} INFO - 25/10/09 04:03:43 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:03:53.716+0000] {subprocess.py:93} INFO - 25/10/09 04:03:53 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:04:03.725+0000] {subprocess.py:93} INFO - 25/10/09 04:04:03 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:04:13.726+0000] {subprocess.py:93} INFO - 25/10/09 04:04:13 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:04:23.738+0000] {subprocess.py:93} INFO - 25/10/09 04:04:23 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:04:33.745+0000] {subprocess.py:93} INFO - 25/10/09 04:04:33 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:04:43.752+0000] {subprocess.py:93} INFO - 25/10/09 04:04:43 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:04:53.755+0000] {subprocess.py:93} INFO - 25/10/09 04:04:53 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:05:03.760+0000] {subprocess.py:93} INFO - 25/10/09 04:05:03 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:05:13.764+0000] {subprocess.py:93} INFO - 25/10/09 04:05:13 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:05:23.779+0000] {subprocess.py:93} INFO - 25/10/09 04:05:23 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:05:33.789+0000] {subprocess.py:93} INFO - 25/10/09 04:05:33 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:05:43.227+0000] {subprocess.py:93} INFO - 25/10/09 04:05:43 INFO NetworkClient: [AdminClient clientId=adminclient-1] Node -1 disconnected.
+[2025-10-09T04:05:43.791+0000] {subprocess.py:93} INFO - 25/10/09 04:05:43 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:05:53.798+0000] {subprocess.py:93} INFO - 25/10/09 04:05:53 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:06:03.808+0000] {subprocess.py:93} INFO - 25/10/09 04:06:03 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:06:13.815+0000] {subprocess.py:93} INFO - 25/10/09 04:06:13 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:06:23.821+0000] {subprocess.py:93} INFO - 25/10/09 04:06:23 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:06:33.822+0000] {subprocess.py:93} INFO - 25/10/09 04:06:33 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:06:43.828+0000] {subprocess.py:93} INFO - 25/10/09 04:06:43 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:06:53.839+0000] {subprocess.py:93} INFO - 25/10/09 04:06:53 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:07:03.846+0000] {subprocess.py:93} INFO - 25/10/09 04:07:03 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:07:13.852+0000] {subprocess.py:93} INFO - 25/10/09 04:07:13 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:07:23.860+0000] {subprocess.py:93} INFO - 25/10/09 04:07:23 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:07:33.866+0000] {subprocess.py:93} INFO - 25/10/09 04:07:33 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:07:43.867+0000] {subprocess.py:93} INFO - 25/10/09 04:07:43 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:07:53.872+0000] {subprocess.py:93} INFO - 25/10/09 04:07:53 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:08:03.875+0000] {subprocess.py:93} INFO - 25/10/09 04:08:03 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:08:13.884+0000] {subprocess.py:93} INFO - 25/10/09 04:08:13 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:08:23.895+0000] {subprocess.py:93} INFO - 25/10/09 04:08:23 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:08:33.897+0000] {subprocess.py:93} INFO - 25/10/09 04:08:33 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:08:43.902+0000] {subprocess.py:93} INFO - 25/10/09 04:08:43 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:08:53.911+0000] {subprocess.py:93} INFO - 25/10/09 04:08:53 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:09:03.918+0000] {subprocess.py:93} INFO - 25/10/09 04:09:03 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:09:13.922+0000] {subprocess.py:93} INFO - 25/10/09 04:09:13 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:09:23.923+0000] {subprocess.py:93} INFO - 25/10/09 04:09:23 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:09:33.931+0000] {subprocess.py:93} INFO - 25/10/09 04:09:33 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:09:43.939+0000] {subprocess.py:93} INFO - 25/10/09 04:09:43 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:09:53.950+0000] {subprocess.py:93} INFO - 25/10/09 04:09:53 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:10:03.955+0000] {subprocess.py:93} INFO - 25/10/09 04:10:03 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:10:13.964+0000] {subprocess.py:93} INFO - 25/10/09 04:10:13 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:10:23.966+0000] {subprocess.py:93} INFO - 25/10/09 04:10:23 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:10:33.976+0000] {subprocess.py:93} INFO - 25/10/09 04:10:33 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:10:43.985+0000] {subprocess.py:93} INFO - 25/10/09 04:10:43 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:10:53.987+0000] {subprocess.py:93} INFO - 25/10/09 04:10:53 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:11:03.999+0000] {subprocess.py:93} INFO - 25/10/09 04:11:03 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:11:14.003+0000] {subprocess.py:93} INFO - 25/10/09 04:11:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:11:24.008+0000] {subprocess.py:93} INFO - 25/10/09 04:11:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:11:34.018+0000] {subprocess.py:93} INFO - 25/10/09 04:11:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:11:44.024+0000] {subprocess.py:93} INFO - 25/10/09 04:11:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:11:54.026+0000] {subprocess.py:93} INFO - 25/10/09 04:11:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:12:04.026+0000] {subprocess.py:93} INFO - 25/10/09 04:12:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:12:14.034+0000] {subprocess.py:93} INFO - 25/10/09 04:12:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:12:24.039+0000] {subprocess.py:93} INFO - 25/10/09 04:12:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:12:34.042+0000] {subprocess.py:93} INFO - 25/10/09 04:12:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:12:44.047+0000] {subprocess.py:93} INFO - 25/10/09 04:12:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:12:54.054+0000] {subprocess.py:93} INFO - 25/10/09 04:12:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:13:04.062+0000] {subprocess.py:93} INFO - 25/10/09 04:13:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:13:14.064+0000] {subprocess.py:93} INFO - 25/10/09 04:13:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:13:24.073+0000] {subprocess.py:93} INFO - 25/10/09 04:13:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:13:34.083+0000] {subprocess.py:93} INFO - 25/10/09 04:13:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:13:44.083+0000] {subprocess.py:93} INFO - 25/10/09 04:13:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:13:54.087+0000] {subprocess.py:93} INFO - 25/10/09 04:13:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:14:04.096+0000] {subprocess.py:93} INFO - 25/10/09 04:14:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:14:14.107+0000] {subprocess.py:93} INFO - 25/10/09 04:14:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:14:24.118+0000] {subprocess.py:93} INFO - 25/10/09 04:14:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:14:34.119+0000] {subprocess.py:93} INFO - 25/10/09 04:14:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:14:44.129+0000] {subprocess.py:93} INFO - 25/10/09 04:14:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:14:54.135+0000] {subprocess.py:93} INFO - 25/10/09 04:14:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:15:04.146+0000] {subprocess.py:93} INFO - 25/10/09 04:15:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:15:14.147+0000] {subprocess.py:93} INFO - 25/10/09 04:15:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:15:24.158+0000] {subprocess.py:93} INFO - 25/10/09 04:15:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:15:34.164+0000] {subprocess.py:93} INFO - 25/10/09 04:15:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:15:44.177+0000] {subprocess.py:93} INFO - 25/10/09 04:15:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:15:54.186+0000] {subprocess.py:93} INFO - 25/10/09 04:15:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:16:04.194+0000] {subprocess.py:93} INFO - 25/10/09 04:16:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:16:14.200+0000] {subprocess.py:93} INFO - 25/10/09 04:16:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:16:24.200+0000] {subprocess.py:93} INFO - 25/10/09 04:16:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:16:34.209+0000] {subprocess.py:93} INFO - 25/10/09 04:16:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:16:44.214+0000] {subprocess.py:93} INFO - 25/10/09 04:16:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:16:54.222+0000] {subprocess.py:93} INFO - 25/10/09 04:16:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:17:04.233+0000] {subprocess.py:93} INFO - 25/10/09 04:17:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:17:14.235+0000] {subprocess.py:93} INFO - 25/10/09 04:17:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:17:24.246+0000] {subprocess.py:93} INFO - 25/10/09 04:17:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:17:34.258+0000] {subprocess.py:93} INFO - 25/10/09 04:17:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:17:44.262+0000] {subprocess.py:93} INFO - 25/10/09 04:17:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:17:54.268+0000] {subprocess.py:93} INFO - 25/10/09 04:17:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:18:04.274+0000] {subprocess.py:93} INFO - 25/10/09 04:18:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:18:14.279+0000] {subprocess.py:93} INFO - 25/10/09 04:18:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:18:24.282+0000] {subprocess.py:93} INFO - 25/10/09 04:18:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:18:34.291+0000] {subprocess.py:93} INFO - 25/10/09 04:18:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:18:44.302+0000] {subprocess.py:93} INFO - 25/10/09 04:18:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:18:54.311+0000] {subprocess.py:93} INFO - 25/10/09 04:18:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:19:04.313+0000] {subprocess.py:93} INFO - 25/10/09 04:19:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:19:14.315+0000] {subprocess.py:93} INFO - 25/10/09 04:19:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:19:24.319+0000] {subprocess.py:93} INFO - 25/10/09 04:19:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:19:34.325+0000] {subprocess.py:93} INFO - 25/10/09 04:19:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:19:44.326+0000] {subprocess.py:93} INFO - 25/10/09 04:19:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:19:54.330+0000] {subprocess.py:93} INFO - 25/10/09 04:19:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:20:04.346+0000] {subprocess.py:93} INFO - 25/10/09 04:20:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:20:14.358+0000] {subprocess.py:93} INFO - 25/10/09 04:20:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:20:24.368+0000] {subprocess.py:93} INFO - 25/10/09 04:20:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:20:34.370+0000] {subprocess.py:93} INFO - 25/10/09 04:20:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:20:44.380+0000] {subprocess.py:93} INFO - 25/10/09 04:20:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:20:54.396+0000] {subprocess.py:93} INFO - 25/10/09 04:20:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:21:04.396+0000] {subprocess.py:93} INFO - 25/10/09 04:21:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:21:14.403+0000] {subprocess.py:93} INFO - 25/10/09 04:21:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:21:24.413+0000] {subprocess.py:93} INFO - 25/10/09 04:21:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:21:34.417+0000] {subprocess.py:93} INFO - 25/10/09 04:21:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:21:44.423+0000] {subprocess.py:93} INFO - 25/10/09 04:21:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:21:54.426+0000] {subprocess.py:93} INFO - 25/10/09 04:21:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:22:04.435+0000] {subprocess.py:93} INFO - 25/10/09 04:22:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:22:14.443+0000] {subprocess.py:93} INFO - 25/10/09 04:22:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:22:24.454+0000] {subprocess.py:93} INFO - 25/10/09 04:22:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:22:34.461+0000] {subprocess.py:93} INFO - 25/10/09 04:22:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:22:44.467+0000] {subprocess.py:93} INFO - 25/10/09 04:22:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:22:54.479+0000] {subprocess.py:93} INFO - 25/10/09 04:22:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:23:04.484+0000] {subprocess.py:93} INFO - 25/10/09 04:23:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:23:14.494+0000] {subprocess.py:93} INFO - 25/10/09 04:23:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:23:24.496+0000] {subprocess.py:93} INFO - 25/10/09 04:23:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:23:34.499+0000] {subprocess.py:93} INFO - 25/10/09 04:23:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:23:44.502+0000] {subprocess.py:93} INFO - 25/10/09 04:23:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:23:54.508+0000] {subprocess.py:93} INFO - 25/10/09 04:23:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:24:04.514+0000] {subprocess.py:93} INFO - 25/10/09 04:24:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:24:14.525+0000] {subprocess.py:93} INFO - 25/10/09 04:24:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:24:24.534+0000] {subprocess.py:93} INFO - 25/10/09 04:24:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:24:34.538+0000] {subprocess.py:93} INFO - 25/10/09 04:24:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:24:44.541+0000] {subprocess.py:93} INFO - 25/10/09 04:24:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:24:54.544+0000] {subprocess.py:93} INFO - 25/10/09 04:24:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:25:04.556+0000] {subprocess.py:93} INFO - 25/10/09 04:25:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:25:14.556+0000] {subprocess.py:93} INFO - 25/10/09 04:25:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:25:24.567+0000] {subprocess.py:93} INFO - 25/10/09 04:25:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:25:34.570+0000] {subprocess.py:93} INFO - 25/10/09 04:25:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:25:44.572+0000] {subprocess.py:93} INFO - 25/10/09 04:25:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:25:54.579+0000] {subprocess.py:93} INFO - 25/10/09 04:25:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:26:04.585+0000] {subprocess.py:93} INFO - 25/10/09 04:26:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:26:14.587+0000] {subprocess.py:93} INFO - 25/10/09 04:26:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:26:24.595+0000] {subprocess.py:93} INFO - 25/10/09 04:26:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:26:34.605+0000] {subprocess.py:93} INFO - 25/10/09 04:26:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:26:44.618+0000] {subprocess.py:93} INFO - 25/10/09 04:26:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:26:54.630+0000] {subprocess.py:93} INFO - 25/10/09 04:26:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:27:04.640+0000] {subprocess.py:93} INFO - 25/10/09 04:27:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:27:14.648+0000] {subprocess.py:93} INFO - 25/10/09 04:27:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:27:24.649+0000] {subprocess.py:93} INFO - 25/10/09 04:27:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:27:34.659+0000] {subprocess.py:93} INFO - 25/10/09 04:27:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:27:44.670+0000] {subprocess.py:93} INFO - 25/10/09 04:27:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:27:54.680+0000] {subprocess.py:93} INFO - 25/10/09 04:27:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:28:04.683+0000] {subprocess.py:93} INFO - 25/10/09 04:28:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:28:14.689+0000] {subprocess.py:93} INFO - 25/10/09 04:28:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:28:24.701+0000] {subprocess.py:93} INFO - 25/10/09 04:28:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:28:34.708+0000] {subprocess.py:93} INFO - 25/10/09 04:28:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:28:44.715+0000] {subprocess.py:93} INFO - 25/10/09 04:28:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:28:54.717+0000] {subprocess.py:93} INFO - 25/10/09 04:28:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:29:04.721+0000] {subprocess.py:93} INFO - 25/10/09 04:29:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:29:14.731+0000] {subprocess.py:93} INFO - 25/10/09 04:29:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:29:24.737+0000] {subprocess.py:93} INFO - 25/10/09 04:29:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:29:34.744+0000] {subprocess.py:93} INFO - 25/10/09 04:29:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:29:44.755+0000] {subprocess.py:93} INFO - 25/10/09 04:29:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:29:54.756+0000] {subprocess.py:93} INFO - 25/10/09 04:29:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:30:04.768+0000] {subprocess.py:93} INFO - 25/10/09 04:30:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:30:14.774+0000] {subprocess.py:93} INFO - 25/10/09 04:30:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:30:24.783+0000] {subprocess.py:93} INFO - 25/10/09 04:30:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:30:34.789+0000] {subprocess.py:93} INFO - 25/10/09 04:30:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:30:44.798+0000] {subprocess.py:93} INFO - 25/10/09 04:30:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:30:54.803+0000] {subprocess.py:93} INFO - 25/10/09 04:30:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:31:04.804+0000] {subprocess.py:93} INFO - 25/10/09 04:31:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:31:14.812+0000] {subprocess.py:93} INFO - 25/10/09 04:31:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:31:24.818+0000] {subprocess.py:93} INFO - 25/10/09 04:31:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:31:34.823+0000] {subprocess.py:93} INFO - 25/10/09 04:31:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:31:44.827+0000] {subprocess.py:93} INFO - 25/10/09 04:31:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:31:54.840+0000] {subprocess.py:93} INFO - 25/10/09 04:31:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:32:04.842+0000] {subprocess.py:93} INFO - 25/10/09 04:32:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:32:14.854+0000] {subprocess.py:93} INFO - 25/10/09 04:32:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:32:24.872+0000] {subprocess.py:93} INFO - 25/10/09 04:32:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:32:34.889+0000] {subprocess.py:93} INFO - 25/10/09 04:32:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:32:44.894+0000] {subprocess.py:93} INFO - 25/10/09 04:32:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:32:54.895+0000] {subprocess.py:93} INFO - 25/10/09 04:32:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:33:04.903+0000] {subprocess.py:93} INFO - 25/10/09 04:33:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:33:14.905+0000] {subprocess.py:93} INFO - 25/10/09 04:33:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:33:24.908+0000] {subprocess.py:93} INFO - 25/10/09 04:33:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:33:34.914+0000] {subprocess.py:93} INFO - 25/10/09 04:33:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:33:44.924+0000] {subprocess.py:93} INFO - 25/10/09 04:33:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:33:54.936+0000] {subprocess.py:93} INFO - 25/10/09 04:33:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:34:04.945+0000] {subprocess.py:93} INFO - 25/10/09 04:34:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:34:14.944+0000] {subprocess.py:93} INFO - 25/10/09 04:34:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:34:24.951+0000] {subprocess.py:93} INFO - 25/10/09 04:34:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:34:34.954+0000] {subprocess.py:93} INFO - 25/10/09 04:34:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:34:44.965+0000] {subprocess.py:93} INFO - 25/10/09 04:34:44 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:34:54.974+0000] {subprocess.py:93} INFO - 25/10/09 04:34:54 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:35:04.983+0000] {subprocess.py:93} INFO - 25/10/09 04:35:04 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:35:14.987+0000] {subprocess.py:93} INFO - 25/10/09 04:35:14 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:35:24.990+0000] {subprocess.py:93} INFO - 25/10/09 04:35:24 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:35:34.997+0000] {subprocess.py:93} INFO - 25/10/09 04:35:34 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:35:45.003+0000] {subprocess.py:93} INFO - 25/10/09 04:35:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:35:55.007+0000] {subprocess.py:93} INFO - 25/10/09 04:35:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:36:05.011+0000] {subprocess.py:93} INFO - 25/10/09 04:36:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:36:15.020+0000] {subprocess.py:93} INFO - 25/10/09 04:36:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:36:25.022+0000] {subprocess.py:93} INFO - 25/10/09 04:36:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:36:35.029+0000] {subprocess.py:93} INFO - 25/10/09 04:36:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:36:45.038+0000] {subprocess.py:93} INFO - 25/10/09 04:36:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:36:55.047+0000] {subprocess.py:93} INFO - 25/10/09 04:36:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:37:05.049+0000] {subprocess.py:93} INFO - 25/10/09 04:37:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:37:15.055+0000] {subprocess.py:93} INFO - 25/10/09 04:37:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:37:25.066+0000] {subprocess.py:93} INFO - 25/10/09 04:37:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:37:35.066+0000] {subprocess.py:93} INFO - 25/10/09 04:37:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:37:45.076+0000] {subprocess.py:93} INFO - 25/10/09 04:37:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:37:55.075+0000] {subprocess.py:93} INFO - 25/10/09 04:37:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:38:05.081+0000] {subprocess.py:93} INFO - 25/10/09 04:38:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:38:15.093+0000] {subprocess.py:93} INFO - 25/10/09 04:38:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:38:25.097+0000] {subprocess.py:93} INFO - 25/10/09 04:38:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:38:35.106+0000] {subprocess.py:93} INFO - 25/10/09 04:38:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:38:45.109+0000] {subprocess.py:93} INFO - 25/10/09 04:38:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:38:55.111+0000] {subprocess.py:93} INFO - 25/10/09 04:38:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:39:05.120+0000] {subprocess.py:93} INFO - 25/10/09 04:39:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:39:15.128+0000] {subprocess.py:93} INFO - 25/10/09 04:39:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:39:25.130+0000] {subprocess.py:93} INFO - 25/10/09 04:39:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:39:35.138+0000] {subprocess.py:93} INFO - 25/10/09 04:39:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:39:45.144+0000] {subprocess.py:93} INFO - 25/10/09 04:39:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:39:55.145+0000] {subprocess.py:93} INFO - 25/10/09 04:39:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:40:05.147+0000] {subprocess.py:93} INFO - 25/10/09 04:40:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:40:15.159+0000] {subprocess.py:93} INFO - 25/10/09 04:40:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:40:25.163+0000] {subprocess.py:93} INFO - 25/10/09 04:40:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:40:35.163+0000] {subprocess.py:93} INFO - 25/10/09 04:40:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:40:45.165+0000] {subprocess.py:93} INFO - 25/10/09 04:40:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:40:55.172+0000] {subprocess.py:93} INFO - 25/10/09 04:40:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:41:05.178+0000] {subprocess.py:93} INFO - 25/10/09 04:41:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:41:15.189+0000] {subprocess.py:93} INFO - 25/10/09 04:41:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:41:25.194+0000] {subprocess.py:93} INFO - 25/10/09 04:41:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:41:35.197+0000] {subprocess.py:93} INFO - 25/10/09 04:41:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:41:45.209+0000] {subprocess.py:93} INFO - 25/10/09 04:41:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:41:55.211+0000] {subprocess.py:93} INFO - 25/10/09 04:41:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:42:05.219+0000] {subprocess.py:93} INFO - 25/10/09 04:42:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:42:15.222+0000] {subprocess.py:93} INFO - 25/10/09 04:42:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:42:25.229+0000] {subprocess.py:93} INFO - 25/10/09 04:42:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:42:35.239+0000] {subprocess.py:93} INFO - 25/10/09 04:42:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:42:45.242+0000] {subprocess.py:93} INFO - 25/10/09 04:42:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:42:55.253+0000] {subprocess.py:93} INFO - 25/10/09 04:42:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:43:05.268+0000] {subprocess.py:93} INFO - 25/10/09 04:43:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:43:15.276+0000] {subprocess.py:93} INFO - 25/10/09 04:43:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:43:25.281+0000] {subprocess.py:93} INFO - 25/10/09 04:43:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:43:35.285+0000] {subprocess.py:93} INFO - 25/10/09 04:43:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:43:45.292+0000] {subprocess.py:93} INFO - 25/10/09 04:43:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:43:55.295+0000] {subprocess.py:93} INFO - 25/10/09 04:43:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:44:05.301+0000] {subprocess.py:93} INFO - 25/10/09 04:44:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:44:15.311+0000] {subprocess.py:93} INFO - 25/10/09 04:44:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:44:25.313+0000] {subprocess.py:93} INFO - 25/10/09 04:44:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:44:35.325+0000] {subprocess.py:93} INFO - 25/10/09 04:44:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:44:45.334+0000] {subprocess.py:93} INFO - 25/10/09 04:44:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:44:55.335+0000] {subprocess.py:93} INFO - 25/10/09 04:44:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:45:05.355+0000] {subprocess.py:93} INFO - 25/10/09 04:45:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:45:15.358+0000] {subprocess.py:93} INFO - 25/10/09 04:45:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:45:25.363+0000] {subprocess.py:93} INFO - 25/10/09 04:45:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:45:35.365+0000] {subprocess.py:93} INFO - 25/10/09 04:45:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:45:45.365+0000] {subprocess.py:93} INFO - 25/10/09 04:45:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:45:55.376+0000] {subprocess.py:93} INFO - 25/10/09 04:45:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:46:05.387+0000] {subprocess.py:93} INFO - 25/10/09 04:46:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:46:15.401+0000] {subprocess.py:93} INFO - 25/10/09 04:46:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:46:25.404+0000] {subprocess.py:93} INFO - 25/10/09 04:46:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:46:35.405+0000] {subprocess.py:93} INFO - 25/10/09 04:46:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:46:45.408+0000] {subprocess.py:93} INFO - 25/10/09 04:46:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:46:55.415+0000] {subprocess.py:93} INFO - 25/10/09 04:46:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:47:05.423+0000] {subprocess.py:93} INFO - 25/10/09 04:47:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:47:15.428+0000] {subprocess.py:93} INFO - 25/10/09 04:47:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:47:25.439+0000] {subprocess.py:93} INFO - 25/10/09 04:47:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:47:35.446+0000] {subprocess.py:93} INFO - 25/10/09 04:47:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:47:45.447+0000] {subprocess.py:93} INFO - 25/10/09 04:47:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:47:55.459+0000] {subprocess.py:93} INFO - 25/10/09 04:47:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:48:05.463+0000] {subprocess.py:93} INFO - 25/10/09 04:48:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:48:15.471+0000] {subprocess.py:93} INFO - 25/10/09 04:48:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:48:25.478+0000] {subprocess.py:93} INFO - 25/10/09 04:48:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:48:35.480+0000] {subprocess.py:93} INFO - 25/10/09 04:48:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:48:45.488+0000] {subprocess.py:93} INFO - 25/10/09 04:48:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:48:55.494+0000] {subprocess.py:93} INFO - 25/10/09 04:48:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:49:05.496+0000] {subprocess.py:93} INFO - 25/10/09 04:49:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:49:15.504+0000] {subprocess.py:93} INFO - 25/10/09 04:49:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:49:25.505+0000] {subprocess.py:93} INFO - 25/10/09 04:49:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:49:35.508+0000] {subprocess.py:93} INFO - 25/10/09 04:49:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:49:45.516+0000] {subprocess.py:93} INFO - 25/10/09 04:49:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:49:55.517+0000] {subprocess.py:93} INFO - 25/10/09 04:49:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:50:05.521+0000] {subprocess.py:93} INFO - 25/10/09 04:50:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:50:15.528+0000] {subprocess.py:93} INFO - 25/10/09 04:50:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:50:25.532+0000] {subprocess.py:93} INFO - 25/10/09 04:50:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:50:35.536+0000] {subprocess.py:93} INFO - 25/10/09 04:50:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:50:45.537+0000] {subprocess.py:93} INFO - 25/10/09 04:50:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:50:55.539+0000] {subprocess.py:93} INFO - 25/10/09 04:50:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:51:05.546+0000] {subprocess.py:93} INFO - 25/10/09 04:51:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:51:15.547+0000] {subprocess.py:93} INFO - 25/10/09 04:51:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:51:25.554+0000] {subprocess.py:93} INFO - 25/10/09 04:51:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:51:35.556+0000] {subprocess.py:93} INFO - 25/10/09 04:51:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:51:45.556+0000] {subprocess.py:93} INFO - 25/10/09 04:51:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:51:55.564+0000] {subprocess.py:93} INFO - 25/10/09 04:51:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:52:05.568+0000] {subprocess.py:93} INFO - 25/10/09 04:52:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:52:15.571+0000] {subprocess.py:93} INFO - 25/10/09 04:52:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:52:25.579+0000] {subprocess.py:93} INFO - 25/10/09 04:52:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:52:35.583+0000] {subprocess.py:93} INFO - 25/10/09 04:52:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:52:45.592+0000] {subprocess.py:93} INFO - 25/10/09 04:52:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:52:55.604+0000] {subprocess.py:93} INFO - 25/10/09 04:52:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:53:05.616+0000] {subprocess.py:93} INFO - 25/10/09 04:53:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:53:15.620+0000] {subprocess.py:93} INFO - 25/10/09 04:53:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:53:25.627+0000] {subprocess.py:93} INFO - 25/10/09 04:53:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:53:35.633+0000] {subprocess.py:93} INFO - 25/10/09 04:53:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:53:45.640+0000] {subprocess.py:93} INFO - 25/10/09 04:53:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:53:55.644+0000] {subprocess.py:93} INFO - 25/10/09 04:53:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:54:05.649+0000] {subprocess.py:93} INFO - 25/10/09 04:54:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:54:15.652+0000] {subprocess.py:93} INFO - 25/10/09 04:54:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:54:25.661+0000] {subprocess.py:93} INFO - 25/10/09 04:54:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:54:35.667+0000] {subprocess.py:93} INFO - 25/10/09 04:54:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:54:45.675+0000] {subprocess.py:93} INFO - 25/10/09 04:54:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:54:55.679+0000] {subprocess.py:93} INFO - 25/10/09 04:54:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:55:05.688+0000] {subprocess.py:93} INFO - 25/10/09 04:55:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:55:15.693+0000] {subprocess.py:93} INFO - 25/10/09 04:55:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:55:25.700+0000] {subprocess.py:93} INFO - 25/10/09 04:55:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:55:35.699+0000] {subprocess.py:93} INFO - 25/10/09 04:55:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:55:45.705+0000] {subprocess.py:93} INFO - 25/10/09 04:55:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:55:55.709+0000] {subprocess.py:93} INFO - 25/10/09 04:55:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:56:05.713+0000] {subprocess.py:93} INFO - 25/10/09 04:56:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:56:15.723+0000] {subprocess.py:93} INFO - 25/10/09 04:56:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:56:25.726+0000] {subprocess.py:93} INFO - 25/10/09 04:56:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:56:35.753+0000] {subprocess.py:93} INFO - 25/10/09 04:56:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:56:45.763+0000] {subprocess.py:93} INFO - 25/10/09 04:56:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:56:55.773+0000] {subprocess.py:93} INFO - 25/10/09 04:56:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:57:05.773+0000] {subprocess.py:93} INFO - 25/10/09 04:57:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:57:15.785+0000] {subprocess.py:93} INFO - 25/10/09 04:57:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:57:25.795+0000] {subprocess.py:93} INFO - 25/10/09 04:57:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:57:35.802+0000] {subprocess.py:93} INFO - 25/10/09 04:57:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:57:45.805+0000] {subprocess.py:93} INFO - 25/10/09 04:57:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:57:55.811+0000] {subprocess.py:93} INFO - 25/10/09 04:57:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:58:05.814+0000] {subprocess.py:93} INFO - 25/10/09 04:58:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:58:15.819+0000] {subprocess.py:93} INFO - 25/10/09 04:58:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:58:25.819+0000] {subprocess.py:93} INFO - 25/10/09 04:58:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:58:35.822+0000] {subprocess.py:93} INFO - 25/10/09 04:58:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:58:45.826+0000] {subprocess.py:93} INFO - 25/10/09 04:58:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:58:55.838+0000] {subprocess.py:93} INFO - 25/10/09 04:58:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:59:05.843+0000] {subprocess.py:93} INFO - 25/10/09 04:59:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:59:15.850+0000] {subprocess.py:93} INFO - 25/10/09 04:59:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:59:25.852+0000] {subprocess.py:93} INFO - 25/10/09 04:59:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:59:35.851+0000] {subprocess.py:93} INFO - 25/10/09 04:59:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:59:45.855+0000] {subprocess.py:93} INFO - 25/10/09 04:59:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T04:59:55.858+0000] {subprocess.py:93} INFO - 25/10/09 04:59:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:00:05.867+0000] {subprocess.py:93} INFO - 25/10/09 05:00:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:00:15.871+0000] {subprocess.py:93} INFO - 25/10/09 05:00:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:00:25.882+0000] {subprocess.py:93} INFO - 25/10/09 05:00:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:00:35.887+0000] {subprocess.py:93} INFO - 25/10/09 05:00:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:00:45.898+0000] {subprocess.py:93} INFO - 25/10/09 05:00:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:00:55.902+0000] {subprocess.py:93} INFO - 25/10/09 05:00:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:01:05.908+0000] {subprocess.py:93} INFO - 25/10/09 05:01:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:01:15.912+0000] {subprocess.py:93} INFO - 25/10/09 05:01:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:01:25.923+0000] {subprocess.py:93} INFO - 25/10/09 05:01:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:01:35.929+0000] {subprocess.py:93} INFO - 25/10/09 05:01:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:01:45.929+0000] {subprocess.py:93} INFO - 25/10/09 05:01:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:01:55.933+0000] {subprocess.py:93} INFO - 25/10/09 05:01:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:02:05.933+0000] {subprocess.py:93} INFO - 25/10/09 05:02:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:02:15.935+0000] {subprocess.py:93} INFO - 25/10/09 05:02:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:02:25.939+0000] {subprocess.py:93} INFO - 25/10/09 05:02:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:02:35.951+0000] {subprocess.py:93} INFO - 25/10/09 05:02:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:02:45.958+0000] {subprocess.py:93} INFO - 25/10/09 05:02:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:02:55.962+0000] {subprocess.py:93} INFO - 25/10/09 05:02:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:03:05.961+0000] {subprocess.py:93} INFO - 25/10/09 05:03:05 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:03:15.967+0000] {subprocess.py:93} INFO - 25/10/09 05:03:15 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:03:25.970+0000] {subprocess.py:93} INFO - 25/10/09 05:03:25 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:03:35.981+0000] {subprocess.py:93} INFO - 25/10/09 05:03:35 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:03:45.985+0000] {subprocess.py:93} INFO - 25/10/09 05:03:45 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:03:55.996+0000] {subprocess.py:93} INFO - 25/10/09 05:03:55 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:04:06.009+0000] {subprocess.py:93} INFO - 25/10/09 05:04:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:04:16.016+0000] {subprocess.py:93} INFO - 25/10/09 05:04:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:04:26.027+0000] {subprocess.py:93} INFO - 25/10/09 05:04:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:04:36.034+0000] {subprocess.py:93} INFO - 25/10/09 05:04:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:04:46.035+0000] {subprocess.py:93} INFO - 25/10/09 05:04:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:04:56.040+0000] {subprocess.py:93} INFO - 25/10/09 05:04:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:05:06.050+0000] {subprocess.py:93} INFO - 25/10/09 05:05:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:05:16.058+0000] {subprocess.py:93} INFO - 25/10/09 05:05:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:05:26.067+0000] {subprocess.py:93} INFO - 25/10/09 05:05:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:05:36.103+0000] {subprocess.py:93} INFO - 25/10/09 05:05:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:05:46.110+0000] {subprocess.py:93} INFO - 25/10/09 05:05:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:05:56.113+0000] {subprocess.py:93} INFO - 25/10/09 05:05:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:06:06.118+0000] {subprocess.py:93} INFO - 25/10/09 05:06:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:06:16.117+0000] {subprocess.py:93} INFO - 25/10/09 05:06:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:06:26.129+0000] {subprocess.py:93} INFO - 25/10/09 05:06:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:06:36.130+0000] {subprocess.py:93} INFO - 25/10/09 05:06:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:06:46.131+0000] {subprocess.py:93} INFO - 25/10/09 05:06:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:06:56.143+0000] {subprocess.py:93} INFO - 25/10/09 05:06:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:07:06.144+0000] {subprocess.py:93} INFO - 25/10/09 05:07:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:07:16.148+0000] {subprocess.py:93} INFO - 25/10/09 05:07:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:07:26.153+0000] {subprocess.py:93} INFO - 25/10/09 05:07:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:07:36.156+0000] {subprocess.py:93} INFO - 25/10/09 05:07:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:07:46.168+0000] {subprocess.py:93} INFO - 25/10/09 05:07:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:07:56.185+0000] {subprocess.py:93} INFO - 25/10/09 05:07:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:08:06.194+0000] {subprocess.py:93} INFO - 25/10/09 05:08:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:08:16.200+0000] {subprocess.py:93} INFO - 25/10/09 05:08:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:08:26.204+0000] {subprocess.py:93} INFO - 25/10/09 05:08:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:08:36.210+0000] {subprocess.py:93} INFO - 25/10/09 05:08:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:08:46.213+0000] {subprocess.py:93} INFO - 25/10/09 05:08:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:08:56.216+0000] {subprocess.py:93} INFO - 25/10/09 05:08:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:09:06.227+0000] {subprocess.py:93} INFO - 25/10/09 05:09:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:09:16.236+0000] {subprocess.py:93} INFO - 25/10/09 05:09:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:09:26.236+0000] {subprocess.py:93} INFO - 25/10/09 05:09:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:09:36.240+0000] {subprocess.py:93} INFO - 25/10/09 05:09:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:09:46.243+0000] {subprocess.py:93} INFO - 25/10/09 05:09:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:09:56.244+0000] {subprocess.py:93} INFO - 25/10/09 05:09:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:10:06.254+0000] {subprocess.py:93} INFO - 25/10/09 05:10:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:10:16.265+0000] {subprocess.py:93} INFO - 25/10/09 05:10:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:10:26.265+0000] {subprocess.py:93} INFO - 25/10/09 05:10:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:10:36.266+0000] {subprocess.py:93} INFO - 25/10/09 05:10:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:10:46.269+0000] {subprocess.py:93} INFO - 25/10/09 05:10:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:10:56.273+0000] {subprocess.py:93} INFO - 25/10/09 05:10:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:11:06.277+0000] {subprocess.py:93} INFO - 25/10/09 05:11:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:11:16.288+0000] {subprocess.py:93} INFO - 25/10/09 05:11:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:11:26.291+0000] {subprocess.py:93} INFO - 25/10/09 05:11:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:11:36.302+0000] {subprocess.py:93} INFO - 25/10/09 05:11:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:11:46.308+0000] {subprocess.py:93} INFO - 25/10/09 05:11:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:11:56.308+0000] {subprocess.py:93} INFO - 25/10/09 05:11:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:12:06.316+0000] {subprocess.py:93} INFO - 25/10/09 05:12:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:12:16.328+0000] {subprocess.py:93} INFO - 25/10/09 05:12:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:12:26.336+0000] {subprocess.py:93} INFO - 25/10/09 05:12:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:12:36.343+0000] {subprocess.py:93} INFO - 25/10/09 05:12:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:12:46.343+0000] {subprocess.py:93} INFO - 25/10/09 05:12:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:12:56.345+0000] {subprocess.py:93} INFO - 25/10/09 05:12:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:13:06.351+0000] {subprocess.py:93} INFO - 25/10/09 05:13:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:13:16.352+0000] {subprocess.py:93} INFO - 25/10/09 05:13:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:13:26.363+0000] {subprocess.py:93} INFO - 25/10/09 05:13:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:13:36.366+0000] {subprocess.py:93} INFO - 25/10/09 05:13:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:13:46.369+0000] {subprocess.py:93} INFO - 25/10/09 05:13:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:13:56.370+0000] {subprocess.py:93} INFO - 25/10/09 05:13:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:14:06.374+0000] {subprocess.py:93} INFO - 25/10/09 05:14:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:14:16.378+0000] {subprocess.py:93} INFO - 25/10/09 05:14:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:14:26.388+0000] {subprocess.py:93} INFO - 25/10/09 05:14:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:14:36.395+0000] {subprocess.py:93} INFO - 25/10/09 05:14:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:14:46.406+0000] {subprocess.py:93} INFO - 25/10/09 05:14:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:14:56.415+0000] {subprocess.py:93} INFO - 25/10/09 05:14:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:15:06.428+0000] {subprocess.py:93} INFO - 25/10/09 05:15:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:15:16.439+0000] {subprocess.py:93} INFO - 25/10/09 05:15:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:15:26.449+0000] {subprocess.py:93} INFO - 25/10/09 05:15:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:15:36.459+0000] {subprocess.py:93} INFO - 25/10/09 05:15:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:15:46.462+0000] {subprocess.py:93} INFO - 25/10/09 05:15:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:15:56.473+0000] {subprocess.py:93} INFO - 25/10/09 05:15:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:16:06.474+0000] {subprocess.py:93} INFO - 25/10/09 05:16:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:16:16.485+0000] {subprocess.py:93} INFO - 25/10/09 05:16:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:16:26.495+0000] {subprocess.py:93} INFO - 25/10/09 05:16:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:16:36.501+0000] {subprocess.py:93} INFO - 25/10/09 05:16:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:16:46.508+0000] {subprocess.py:93} INFO - 25/10/09 05:16:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:16:56.519+0000] {subprocess.py:93} INFO - 25/10/09 05:16:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:17:06.530+0000] {subprocess.py:93} INFO - 25/10/09 05:17:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:17:16.531+0000] {subprocess.py:93} INFO - 25/10/09 05:17:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:17:26.538+0000] {subprocess.py:93} INFO - 25/10/09 05:17:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:17:36.539+0000] {subprocess.py:93} INFO - 25/10/09 05:17:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:17:46.543+0000] {subprocess.py:93} INFO - 25/10/09 05:17:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:17:56.546+0000] {subprocess.py:93} INFO - 25/10/09 05:17:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:18:06.550+0000] {subprocess.py:93} INFO - 25/10/09 05:18:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:18:16.558+0000] {subprocess.py:93} INFO - 25/10/09 05:18:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:18:26.568+0000] {subprocess.py:93} INFO - 25/10/09 05:18:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:18:36.578+0000] {subprocess.py:93} INFO - 25/10/09 05:18:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:18:46.585+0000] {subprocess.py:93} INFO - 25/10/09 05:18:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:18:56.596+0000] {subprocess.py:93} INFO - 25/10/09 05:18:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:19:06.598+0000] {subprocess.py:93} INFO - 25/10/09 05:19:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:19:16.607+0000] {subprocess.py:93} INFO - 25/10/09 05:19:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:19:26.611+0000] {subprocess.py:93} INFO - 25/10/09 05:19:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:19:36.614+0000] {subprocess.py:93} INFO - 25/10/09 05:19:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:19:46.622+0000] {subprocess.py:93} INFO - 25/10/09 05:19:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:19:56.626+0000] {subprocess.py:93} INFO - 25/10/09 05:19:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:20:06.634+0000] {subprocess.py:93} INFO - 25/10/09 05:20:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:20:16.635+0000] {subprocess.py:93} INFO - 25/10/09 05:20:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:20:26.638+0000] {subprocess.py:93} INFO - 25/10/09 05:20:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:20:36.650+0000] {subprocess.py:93} INFO - 25/10/09 05:20:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:20:46.651+0000] {subprocess.py:93} INFO - 25/10/09 05:20:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:20:56.655+0000] {subprocess.py:93} INFO - 25/10/09 05:20:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:21:06.656+0000] {subprocess.py:93} INFO - 25/10/09 05:21:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:21:16.663+0000] {subprocess.py:93} INFO - 25/10/09 05:21:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:21:26.676+0000] {subprocess.py:93} INFO - 25/10/09 05:21:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:21:36.684+0000] {subprocess.py:93} INFO - 25/10/09 05:21:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:21:46.687+0000] {subprocess.py:93} INFO - 25/10/09 05:21:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:21:56.695+0000] {subprocess.py:93} INFO - 25/10/09 05:21:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:22:06.704+0000] {subprocess.py:93} INFO - 25/10/09 05:22:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:22:16.707+0000] {subprocess.py:93} INFO - 25/10/09 05:22:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:22:26.716+0000] {subprocess.py:93} INFO - 25/10/09 05:22:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:22:36.724+0000] {subprocess.py:93} INFO - 25/10/09 05:22:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:22:46.724+0000] {subprocess.py:93} INFO - 25/10/09 05:22:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:22:56.732+0000] {subprocess.py:93} INFO - 25/10/09 05:22:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:23:06.734+0000] {subprocess.py:93} INFO - 25/10/09 05:23:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:23:16.744+0000] {subprocess.py:93} INFO - 25/10/09 05:23:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:23:26.750+0000] {subprocess.py:93} INFO - 25/10/09 05:23:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:23:36.757+0000] {subprocess.py:93} INFO - 25/10/09 05:23:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:23:46.764+0000] {subprocess.py:93} INFO - 25/10/09 05:23:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:23:56.772+0000] {subprocess.py:93} INFO - 25/10/09 05:23:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:24:06.783+0000] {subprocess.py:93} INFO - 25/10/09 05:24:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:24:16.789+0000] {subprocess.py:93} INFO - 25/10/09 05:24:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:24:26.801+0000] {subprocess.py:93} INFO - 25/10/09 05:24:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:24:36.812+0000] {subprocess.py:93} INFO - 25/10/09 05:24:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:24:46.816+0000] {subprocess.py:93} INFO - 25/10/09 05:24:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:24:56.827+0000] {subprocess.py:93} INFO - 25/10/09 05:24:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:25:06.836+0000] {subprocess.py:93} INFO - 25/10/09 05:25:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:25:16.841+0000] {subprocess.py:93} INFO - 25/10/09 05:25:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:25:26.842+0000] {subprocess.py:93} INFO - 25/10/09 05:25:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:25:36.850+0000] {subprocess.py:93} INFO - 25/10/09 05:25:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:25:46.850+0000] {subprocess.py:93} INFO - 25/10/09 05:25:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:25:56.858+0000] {subprocess.py:93} INFO - 25/10/09 05:25:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:26:06.867+0000] {subprocess.py:93} INFO - 25/10/09 05:26:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:26:16.874+0000] {subprocess.py:93} INFO - 25/10/09 05:26:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:26:26.886+0000] {subprocess.py:93} INFO - 25/10/09 05:26:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:26:36.883+0000] {subprocess.py:93} INFO - 25/10/09 05:26:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:26:46.888+0000] {subprocess.py:93} INFO - 25/10/09 05:26:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:26:56.898+0000] {subprocess.py:93} INFO - 25/10/09 05:26:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:27:06.903+0000] {subprocess.py:93} INFO - 25/10/09 05:27:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:27:16.905+0000] {subprocess.py:93} INFO - 25/10/09 05:27:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:27:26.930+0000] {subprocess.py:93} INFO - 25/10/09 05:27:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:27:36.937+0000] {subprocess.py:93} INFO - 25/10/09 05:27:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:27:46.946+0000] {subprocess.py:93} INFO - 25/10/09 05:27:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:27:56.950+0000] {subprocess.py:93} INFO - 25/10/09 05:27:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:28:06.956+0000] {subprocess.py:93} INFO - 25/10/09 05:28:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:28:16.966+0000] {subprocess.py:93} INFO - 25/10/09 05:28:16 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:28:26.974+0000] {subprocess.py:93} INFO - 25/10/09 05:28:26 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:28:36.977+0000] {subprocess.py:93} INFO - 25/10/09 05:28:36 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:28:46.984+0000] {subprocess.py:93} INFO - 25/10/09 05:28:46 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:28:56.996+0000] {subprocess.py:93} INFO - 25/10/09 05:28:56 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:29:06.997+0000] {subprocess.py:93} INFO - 25/10/09 05:29:06 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:29:17.005+0000] {subprocess.py:93} INFO - 25/10/09 05:29:17 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:29:27.011+0000] {subprocess.py:93} INFO - 25/10/09 05:29:27 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:29:37.011+0000] {subprocess.py:93} INFO - 25/10/09 05:29:37 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:29:47.018+0000] {subprocess.py:93} INFO - 25/10/09 05:29:47 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:29:57.026+0000] {subprocess.py:93} INFO - 25/10/09 05:29:57 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:30:07.031+0000] {subprocess.py:93} INFO - 25/10/09 05:30:07 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:30:17.032+0000] {subprocess.py:93} INFO - 25/10/09 05:30:17 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:30:27.033+0000] {subprocess.py:93} INFO - 25/10/09 05:30:27 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:30:37.038+0000] {subprocess.py:93} INFO - 25/10/09 05:30:37 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:30:47.043+0000] {subprocess.py:93} INFO - 25/10/09 05:30:47 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:30:57.051+0000] {subprocess.py:93} INFO - 25/10/09 05:30:57 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:31:07.053+0000] {subprocess.py:93} INFO - 25/10/09 05:31:07 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:31:17.058+0000] {subprocess.py:93} INFO - 25/10/09 05:31:17 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:31:27.063+0000] {subprocess.py:93} INFO - 25/10/09 05:31:27 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:31:37.064+0000] {subprocess.py:93} INFO - 25/10/09 05:31:37 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:31:47.070+0000] {subprocess.py:93} INFO - 25/10/09 05:31:47 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:31:57.070+0000] {subprocess.py:93} INFO - 25/10/09 05:31:57 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:32:07.078+0000] {subprocess.py:93} INFO - 25/10/09 05:32:07 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:32:17.084+0000] {subprocess.py:93} INFO - 25/10/09 05:32:17 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:32:27.092+0000] {subprocess.py:93} INFO - 25/10/09 05:32:27 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:32:37.099+0000] {subprocess.py:93} INFO - 25/10/09 05:32:37 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:32:47.105+0000] {subprocess.py:93} INFO - 25/10/09 05:32:47 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:32:57.114+0000] {subprocess.py:93} INFO - 25/10/09 05:32:57 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:33:07.124+0000] {subprocess.py:93} INFO - 25/10/09 05:33:07 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:33:17.135+0000] {subprocess.py:93} INFO - 25/10/09 05:33:17 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:33:27.142+0000] {subprocess.py:93} INFO - 25/10/09 05:33:27 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:33:37.147+0000] {subprocess.py:93} INFO - 25/10/09 05:33:37 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:33:47.152+0000] {subprocess.py:93} INFO - 25/10/09 05:33:47 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:33:57.156+0000] {subprocess.py:93} INFO - 25/10/09 05:33:57 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:34:07.156+0000] {subprocess.py:93} INFO - 25/10/09 05:34:07 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:34:17.163+0000] {subprocess.py:93} INFO - 25/10/09 05:34:17 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:34:27.170+0000] {subprocess.py:93} INFO - 25/10/09 05:34:27 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:34:37.179+0000] {subprocess.py:93} INFO - 25/10/09 05:34:37 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:34:47.181+0000] {subprocess.py:93} INFO - 25/10/09 05:34:47 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:34:57.192+0000] {subprocess.py:93} INFO - 25/10/09 05:34:57 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:35:07.203+0000] {subprocess.py:93} INFO - 25/10/09 05:35:07 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:35:17.205+0000] {subprocess.py:93} INFO - 25/10/09 05:35:17 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:35:27.208+0000] {subprocess.py:93} INFO - 25/10/09 05:35:27 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:35:37.215+0000] {subprocess.py:93} INFO - 25/10/09 05:35:37 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:35:47.224+0000] {subprocess.py:93} INFO - 25/10/09 05:35:47 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:35:57.239+0000] {subprocess.py:93} INFO - 25/10/09 05:35:57 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:36:07.249+0000] {subprocess.py:93} INFO - 25/10/09 05:36:07 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:36:17.257+0000] {subprocess.py:93} INFO - 25/10/09 05:36:17 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:36:27.262+0000] {subprocess.py:93} INFO - 25/10/09 05:36:27 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:36:37.272+0000] {subprocess.py:93} INFO - 25/10/09 05:36:37 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:36:47.280+0000] {subprocess.py:93} INFO - 25/10/09 05:36:47 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:36:57.289+0000] {subprocess.py:93} INFO - 25/10/09 05:36:57 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:37:07.294+0000] {subprocess.py:93} INFO - 25/10/09 05:37:07 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:37:17.294+0000] {subprocess.py:93} INFO - 25/10/09 05:37:17 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:37:27.299+0000] {subprocess.py:93} INFO - 25/10/09 05:37:27 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:37:37.311+0000] {subprocess.py:93} INFO - 25/10/09 05:37:37 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:37:47.321+0000] {subprocess.py:93} INFO - 25/10/09 05:37:47 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:37:57.333+0000] {subprocess.py:93} INFO - 25/10/09 05:37:57 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:38:07.340+0000] {subprocess.py:93} INFO - 25/10/09 05:38:07 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:38:17.343+0000] {subprocess.py:93} INFO - 25/10/09 05:38:17 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:38:27.341+0000] {subprocess.py:93} INFO - 25/10/09 05:38:27 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:38:37.351+0000] {subprocess.py:93} INFO - 25/10/09 05:38:37 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:38:47.371+0000] {subprocess.py:93} INFO - 25/10/09 05:38:47 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:38:57.373+0000] {subprocess.py:93} INFO - 25/10/09 05:38:57 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:39:07.375+0000] {subprocess.py:93} INFO - 25/10/09 05:39:07 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:39:17.378+0000] {subprocess.py:93} INFO - 25/10/09 05:39:17 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:39:27.390+0000] {subprocess.py:93} INFO - 25/10/09 05:39:27 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:39:37.395+0000] {subprocess.py:93} INFO - 25/10/09 05:39:37 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:39:47.395+0000] {subprocess.py:93} INFO - 25/10/09 05:39:47 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:39:57.396+0000] {subprocess.py:93} INFO - 25/10/09 05:39:57 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:40:07.408+0000] {subprocess.py:93} INFO - 25/10/09 05:40:07 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:40:17.408+0000] {subprocess.py:93} INFO - 25/10/09 05:40:17 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:40:27.409+0000] {subprocess.py:93} INFO - 25/10/09 05:40:27 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:40:37.410+0000] {subprocess.py:93} INFO - 25/10/09 05:40:37 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:40:47.423+0000] {subprocess.py:93} INFO - 25/10/09 05:40:47 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:40:57.425+0000] {subprocess.py:93} INFO - 25/10/09 05:40:57 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:41:07.427+0000] {subprocess.py:93} INFO - 25/10/09 05:41:07 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:41:17.437+0000] {subprocess.py:93} INFO - 25/10/09 05:41:17 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:41:27.443+0000] {subprocess.py:93} INFO - 25/10/09 05:41:27 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:41:37.451+0000] {subprocess.py:93} INFO - 25/10/09 05:41:37 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:41:47.455+0000] {subprocess.py:93} INFO - 25/10/09 05:41:47 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:41:57.461+0000] {subprocess.py:93} INFO - 25/10/09 05:41:57 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:42:07.465+0000] {subprocess.py:93} INFO - 25/10/09 05:42:07 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:42:17.474+0000] {subprocess.py:93} INFO - 25/10/09 05:42:17 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:42:27.481+0000] {subprocess.py:93} INFO - 25/10/09 05:42:27 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:42:37.482+0000] {subprocess.py:93} INFO - 25/10/09 05:42:37 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:42:47.485+0000] {subprocess.py:93} INFO - 25/10/09 05:42:47 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:42:57.494+0000] {subprocess.py:93} INFO - 25/10/09 05:42:57 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:43:07.504+0000] {subprocess.py:93} INFO - 25/10/09 05:43:07 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:43:17.506+0000] {subprocess.py:93} INFO - 25/10/09 05:43:17 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:43:27.510+0000] {subprocess.py:93} INFO - 25/10/09 05:43:27 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:43:37.512+0000] {subprocess.py:93} INFO - 25/10/09 05:43:37 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:43:47.513+0000] {subprocess.py:93} INFO - 25/10/09 05:43:47 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:43:57.515+0000] {subprocess.py:93} INFO - 25/10/09 05:43:57 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:44:07.527+0000] {subprocess.py:93} INFO - 25/10/09 05:44:07 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:44:17.537+0000] {subprocess.py:93} INFO - 25/10/09 05:44:17 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:44:27.549+0000] {subprocess.py:93} INFO - 25/10/09 05:44:27 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:44:37.557+0000] {subprocess.py:93} INFO - 25/10/09 05:44:37 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:44:47.561+0000] {subprocess.py:93} INFO - 25/10/09 05:44:47 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:44:57.574+0000] {subprocess.py:93} INFO - 25/10/09 05:44:57 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:45:07.581+0000] {subprocess.py:93} INFO - 25/10/09 05:45:07 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:45:17.587+0000] {subprocess.py:93} INFO - 25/10/09 05:45:17 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:45:27.596+0000] {subprocess.py:93} INFO - 25/10/09 05:45:27 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:45:37.598+0000] {subprocess.py:93} INFO - 25/10/09 05:45:37 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:45:47.601+0000] {subprocess.py:93} INFO - 25/10/09 05:45:47 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:45:57.613+0000] {subprocess.py:93} INFO - 25/10/09 05:45:57 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:46:07.614+0000] {subprocess.py:93} INFO - 25/10/09 05:46:07 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:46:17.624+0000] {subprocess.py:93} INFO - 25/10/09 05:46:17 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:46:27.629+0000] {subprocess.py:93} INFO - 25/10/09 05:46:27 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:46:37.628+0000] {subprocess.py:93} INFO - 25/10/09 05:46:37 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:46:47.640+0000] {subprocess.py:93} INFO - 25/10/09 05:46:47 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:46:57.648+0000] {subprocess.py:93} INFO - 25/10/09 05:46:57 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:47:07.654+0000] {subprocess.py:93} INFO - 25/10/09 05:47:07 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:47:17.665+0000] {subprocess.py:93} INFO - 25/10/09 05:47:17 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:47:27.672+0000] {subprocess.py:93} INFO - 25/10/09 05:47:27 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:47:37.681+0000] {subprocess.py:93} INFO - 25/10/09 05:47:37 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:47:47.684+0000] {subprocess.py:93} INFO - 25/10/09 05:47:47 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:47:57.692+0000] {subprocess.py:93} INFO - 25/10/09 05:47:57 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:48:07.702+0000] {subprocess.py:93} INFO - 25/10/09 05:48:07 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:48:17.709+0000] {subprocess.py:93} INFO - 25/10/09 05:48:17 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:48:27.712+0000] {subprocess.py:93} INFO - 25/10/09 05:48:27 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:48:37.724+0000] {subprocess.py:93} INFO - 25/10/09 05:48:37 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:48:47.726+0000] {subprocess.py:93} INFO - 25/10/09 05:48:47 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:48:57.771+0000] {subprocess.py:93} INFO - 25/10/09 05:48:57 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-10-09T05:48:59.673+0000] {subprocess.py:93} INFO - 25/10/09 05:48:59 INFO NetworkClient: [AdminClient clientId=adminclient-1] Node 1 disconnected.
+[2025-10-09T05:48:59.688+0000] {subprocess.py:93} INFO - 25/10/09 05:48:59 INFO NetworkClient: [AdminClient clientId=adminclient-1] Cancelled in-flight METADATA request with correlation id 1476244 due to node 1 being disconnected (elapsed time since creation: 887ms, elapsed time since send: 887ms, request timeout: 30000ms)
+[2025-10-09T05:48:59.870+0000] {subprocess.py:93} INFO - 25/10/09 05:48:59 INFO NetworkClient: [AdminClient clientId=adminclient-1] Node 1 disconnected.
+[2025-10-09T05:48:59.879+0000] {subprocess.py:93} INFO - 25/10/09 05:48:59 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (kafka/172.21.0.12:9092) could not be established. Broker may not be available.
+[2025-10-09T05:48:59.975+0000] {subprocess.py:93} INFO - 25/10/09 05:48:59 INFO NetworkClient: [AdminClient clientId=adminclient-1] Node 1 disconnected.
+[2025-10-09T05:48:59.978+0000] {subprocess.py:93} INFO - 25/10/09 05:48:59 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (kafka/172.21.0.12:9092) could not be established. Broker may not be available.
+[2025-10-09T05:49:00.250+0000] {subprocess.py:93} INFO - 25/10/09 05:49:00 INFO NetworkClient: [AdminClient clientId=adminclient-1] Node 1 disconnected.
+[2025-10-09T05:49:00.260+0000] {subprocess.py:93} INFO - 25/10/09 05:49:00 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (kafka/172.21.0.12:9092) could not be established. Broker may not be available.
+[2025-10-09T05:49:00.617+0000] {subprocess.py:93} INFO - 25/10/09 05:49:00 INFO NetworkClient: [AdminClient clientId=adminclient-1] Node 1 disconnected.
+[2025-10-09T05:49:00.619+0000] {subprocess.py:93} INFO - 25/10/09 05:49:00 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (kafka/172.21.0.12:9092) could not be established. Broker may not be available.

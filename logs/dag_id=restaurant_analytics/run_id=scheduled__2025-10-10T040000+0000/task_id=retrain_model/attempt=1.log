@@ -1,0 +1,195 @@
+[2025-10-10T05:00:09.212+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-10T05:00:09.258+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: restaurant_analytics.retrain_model scheduled__2025-10-10T04:00:00+00:00 [queued]>
+[2025-10-10T05:00:09.273+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: restaurant_analytics.retrain_model scheduled__2025-10-10T04:00:00+00:00 [queued]>
+[2025-10-10T05:00:09.283+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-10-10T05:00:09.307+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): retrain_model> on 2025-10-10 04:00:00+00:00
+[2025-10-10T05:00:09.320+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=1976) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-10-10T05:00:09.324+0000] {standard_task_runner.py:64} INFO - Started process 1978 to run task
+[2025-10-10T05:00:09.323+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'restaurant_analytics', 'retrain_model', 'scheduled__2025-10-10T04:00:00+00:00', '--job-id', '317', '--raw', '--subdir', 'DAGS_FOLDER/restaurant_dag.py', '--cfg-path', '/tmp/tmpq0glsmgv']
+[2025-10-10T05:00:09.328+0000] {standard_task_runner.py:91} INFO - Job 317: Subtask retrain_model
+[2025-10-10T05:00:09.443+0000] {task_command.py:426} INFO - Running <TaskInstance: restaurant_analytics.retrain_model scheduled__2025-10-10T04:00:00+00:00 [running]> on host dd5baa7fba45
+[2025-10-10T05:00:09.596+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='quantruong1918@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='restaurant_analytics' AIRFLOW_CTX_TASK_ID='retrain_model' AIRFLOW_CTX_EXECUTION_DATE='2025-10-10T04:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-10-10T04:00:00+00:00'
+[2025-10-10T05:00:09.600+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-10T05:00:09.603+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-10-10T05:00:09.605+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'export PYSPARK_PYTHON=/usr/local/bin/python && export PYSPARK_DRIVER_PYTHON=/usr/local/bin/python && /opt/spark/bin/spark-submit --master local[*] /opt/***/dags/train_lr.py']
+[2025-10-10T05:00:09.625+0000] {subprocess.py:86} INFO - Output:
+[2025-10-10T05:00:20.553+0000] {subprocess.py:93} INFO - 25/10/10 05:00:20 INFO SparkContext: Running Spark version 3.5.1
+[2025-10-10T05:00:20.556+0000] {subprocess.py:93} INFO - 25/10/10 05:00:20 INFO SparkContext: OS info Linux, 6.6.87.1-microsoft-standard-WSL2, amd64
+[2025-10-10T05:00:20.557+0000] {subprocess.py:93} INFO - 25/10/10 05:00:20 INFO SparkContext: Java version 17.0.16
+[2025-10-10T05:00:20.659+0000] {subprocess.py:93} INFO - 25/10/10 05:00:20 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-10-10T05:00:20.811+0000] {subprocess.py:93} INFO - 25/10/10 05:00:20 INFO ResourceUtils: ==============================================================
+[2025-10-10T05:00:20.812+0000] {subprocess.py:93} INFO - 25/10/10 05:00:20 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2025-10-10T05:00:20.813+0000] {subprocess.py:93} INFO - 25/10/10 05:00:20 INFO ResourceUtils: ==============================================================
+[2025-10-10T05:00:20.814+0000] {subprocess.py:93} INFO - 25/10/10 05:00:20 INFO SparkContext: Submitted application: TrainLR
+[2025-10-10T05:00:20.851+0000] {subprocess.py:93} INFO - 25/10/10 05:00:20 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2025-10-10T05:00:20.870+0000] {subprocess.py:93} INFO - 25/10/10 05:00:20 INFO ResourceProfile: Limiting resource is cpu
+[2025-10-10T05:00:20.872+0000] {subprocess.py:93} INFO - 25/10/10 05:00:20 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2025-10-10T05:00:20.970+0000] {subprocess.py:93} INFO - 25/10/10 05:00:20 INFO SecurityManager: Changing view acls to: ***
+[2025-10-10T05:00:20.971+0000] {subprocess.py:93} INFO - 25/10/10 05:00:20 INFO SecurityManager: Changing modify acls to: ***
+[2025-10-10T05:00:20.971+0000] {subprocess.py:93} INFO - 25/10/10 05:00:20 INFO SecurityManager: Changing view acls groups to:
+[2025-10-10T05:00:20.972+0000] {subprocess.py:93} INFO - 25/10/10 05:00:20 INFO SecurityManager: Changing modify acls groups to:
+[2025-10-10T05:00:20.973+0000] {subprocess.py:93} INFO - 25/10/10 05:00:20 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: ***; groups with view permissions: EMPTY; users with modify permissions: ***; groups with modify permissions: EMPTY
+[2025-10-10T05:00:21.365+0000] {subprocess.py:93} INFO - 25/10/10 05:00:21 INFO Utils: Successfully started service 'sparkDriver' on port 38843.
+[2025-10-10T05:00:21.416+0000] {subprocess.py:93} INFO - 25/10/10 05:00:21 INFO SparkEnv: Registering MapOutputTracker
+[2025-10-10T05:00:21.515+0000] {subprocess.py:93} INFO - 25/10/10 05:00:21 INFO SparkEnv: Registering BlockManagerMaster
+[2025-10-10T05:00:21.594+0000] {subprocess.py:93} INFO - 25/10/10 05:00:21 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2025-10-10T05:00:21.595+0000] {subprocess.py:93} INFO - 25/10/10 05:00:21 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2025-10-10T05:00:21.607+0000] {subprocess.py:93} INFO - 25/10/10 05:00:21 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2025-10-10T05:00:21.679+0000] {subprocess.py:93} INFO - 25/10/10 05:00:21 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-0404018f-14dc-483f-8f17-d7365d5d5aab
+[2025-10-10T05:00:21.717+0000] {subprocess.py:93} INFO - 25/10/10 05:00:21 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2025-10-10T05:00:21.760+0000] {subprocess.py:93} INFO - 25/10/10 05:00:21 INFO SparkEnv: Registering OutputCommitCoordinator
+[2025-10-10T05:00:22.101+0000] {subprocess.py:93} INFO - 25/10/10 05:00:22 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2025-10-10T05:00:22.256+0000] {subprocess.py:93} INFO - 25/10/10 05:00:22 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2025-10-10T05:00:22.453+0000] {subprocess.py:93} INFO - 25/10/10 05:00:22 INFO Executor: Starting executor ID driver on host dd5baa7fba45
+[2025-10-10T05:00:22.454+0000] {subprocess.py:93} INFO - 25/10/10 05:00:22 INFO Executor: OS info Linux, 6.6.87.1-microsoft-standard-WSL2, amd64
+[2025-10-10T05:00:22.455+0000] {subprocess.py:93} INFO - 25/10/10 05:00:22 INFO Executor: Java version 17.0.16
+[2025-10-10T05:00:22.472+0000] {subprocess.py:93} INFO - 25/10/10 05:00:22 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+[2025-10-10T05:00:22.474+0000] {subprocess.py:93} INFO - 25/10/10 05:00:22 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@44a30338 for default.
+[2025-10-10T05:00:22.515+0000] {subprocess.py:93} INFO - 25/10/10 05:00:22 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 40325.
+[2025-10-10T05:00:22.522+0000] {subprocess.py:93} INFO - 25/10/10 05:00:22 INFO NettyBlockTransferService: Server created on dd5baa7fba45:40325
+[2025-10-10T05:00:22.523+0000] {subprocess.py:93} INFO - 25/10/10 05:00:22 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2025-10-10T05:00:22.530+0000] {subprocess.py:93} INFO - 25/10/10 05:00:22 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, dd5baa7fba45, 40325, None)
+[2025-10-10T05:00:22.536+0000] {subprocess.py:93} INFO - 25/10/10 05:00:22 INFO BlockManagerMasterEndpoint: Registering block manager dd5baa7fba45:40325 with 434.4 MiB RAM, BlockManagerId(driver, dd5baa7fba45, 40325, None)
+[2025-10-10T05:00:22.540+0000] {subprocess.py:93} INFO - 25/10/10 05:00:22 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, dd5baa7fba45, 40325, None)
+[2025-10-10T05:00:22.542+0000] {subprocess.py:93} INFO - 25/10/10 05:00:22 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, dd5baa7fba45, 40325, None)
+[2025-10-10T05:00:23.367+0000] {subprocess.py:93} INFO - 25/10/10 05:00:23 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+[2025-10-10T05:00:23.393+0000] {subprocess.py:93} INFO - 25/10/10 05:00:23 INFO SharedState: Warehouse path is 'file:/tmp/***tmpmlsjhtp3/spark-warehouse'.
+[2025-10-10T05:00:25.599+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-10-10T05:00:25.600+0000] {subprocess.py:93} INFO -   File "/opt/***/dags/train_lr.py", line 7, in <module>
+[2025-10-10T05:00:25.603+0000] {subprocess.py:93} INFO -     df = spark.read.csv('historical_orders.csv', header=True, inferSchema=True)
+[2025-10-10T05:00:25.604+0000] {subprocess.py:93} INFO -          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-10-10T05:00:25.605+0000] {subprocess.py:93} INFO -   File "/opt/spark/python/lib/pyspark.zip/pyspark/sql/readwriter.py", line 740, in csv
+[2025-10-10T05:00:25.605+0000] {subprocess.py:93} INFO -   File "/opt/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
+[2025-10-10T05:00:25.606+0000] {subprocess.py:93} INFO -   File "/opt/spark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 185, in deco
+[2025-10-10T05:00:25.617+0000] {subprocess.py:93} INFO - pyspark.errors.exceptions.captured.AnalysisException: [PATH_NOT_FOUND] Path does not exist: file:/tmp/***tmpmlsjhtp3/historical_orders.csv.
+[2025-10-10T05:00:25.812+0000] {subprocess.py:93} INFO - 25/10/10 05:00:25 INFO SparkContext: Invoking stop() from shutdown hook
+[2025-10-10T05:00:25.813+0000] {subprocess.py:93} INFO - 25/10/10 05:00:25 INFO SparkContext: SparkContext is stopping with exitCode 0.
+[2025-10-10T05:00:25.828+0000] {subprocess.py:93} INFO - 25/10/10 05:00:25 INFO SparkUI: Stopped Spark web UI at http://dd5baa7fba45:4040
+[2025-10-10T05:00:25.845+0000] {subprocess.py:93} INFO - 25/10/10 05:00:25 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+[2025-10-10T05:00:25.865+0000] {subprocess.py:93} INFO - 25/10/10 05:00:25 INFO MemoryStore: MemoryStore cleared
+[2025-10-10T05:00:25.866+0000] {subprocess.py:93} INFO - 25/10/10 05:00:25 INFO BlockManager: BlockManager stopped
+[2025-10-10T05:00:25.874+0000] {subprocess.py:93} INFO - 25/10/10 05:00:25 INFO BlockManagerMaster: BlockManagerMaster stopped
+[2025-10-10T05:00:25.880+0000] {subprocess.py:93} INFO - 25/10/10 05:00:25 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+[2025-10-10T05:00:25.894+0000] {subprocess.py:93} INFO - 25/10/10 05:00:25 INFO SparkContext: Successfully stopped SparkContext
+[2025-10-10T05:00:25.895+0000] {subprocess.py:93} INFO - 25/10/10 05:00:25 INFO ShutdownHookManager: Shutdown hook called
+[2025-10-10T05:00:25.896+0000] {subprocess.py:93} INFO - 25/10/10 05:00:25 INFO ShutdownHookManager: Deleting directory /tmp/spark-112a1855-7e79-4047-9071-21171da5ea7d/pyspark-edba60d8-f885-494a-be27-df7f2cae9515
+[2025-10-10T05:00:25.900+0000] {subprocess.py:93} INFO - 25/10/10 05:00:25 INFO ShutdownHookManager: Deleting directory /tmp/spark-112a1855-7e79-4047-9071-21171da5ea7d
+[2025-10-10T05:00:25.906+0000] {subprocess.py:93} INFO - 25/10/10 05:00:25 INFO ShutdownHookManager: Deleting directory /tmp/spark-f7fe266c-3b65-4345-a471-60966977cc4a
+[2025-10-10T05:00:25.965+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-10-10T05:00:25.966+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-10T05:00:25.986+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-10-10T05:00:25.999+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=restaurant_analytics, task_id=retrain_model, run_id=scheduled__2025-10-10T04:00:00+00:00, execution_date=20251010T040000, start_date=20251010T050009, end_date=20251010T050025
+[2025-10-10T05:00:26.035+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/utils/email.py:154: RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+  send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+
+[2025-10-10T05:00:26.036+0000] {configuration.py:1053} WARNING - section/key [smtp/smtp_user] not found in config
+[2025-10-10T05:00:26.039+0000] {email.py:271} INFO - Email alerting: attempt 1
+[2025-10-10T05:00:26.053+0000] {configuration.py:1053} WARNING - section/key [smtp/smtp_user] not found in config
+[2025-10-10T05:00:26.054+0000] {email.py:271} INFO - Email alerting: attempt 1
+[2025-10-10T05:00:26.055+0000] {taskinstance.py:879} ERROR - Failed to send email to: ['quantruong1918@gmail.com']
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2479, in _run_raw_task
+    self._execute_task_with_callbacks(context, test_mode, session=session)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2676, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2701, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 1063, in _email_alert
+    send_email(task.email, subject, html_content)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 80, in send_email
+    return backend(
+           ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 154, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 273, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 317, in _get_smtp_connection
+    return smtplib.SMTP(host=host, port=port, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 853, in create_connection
+    raise exceptions[0]
+  File "/usr/local/lib/python3.12/socket.py", line 838, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 877, in _handle_failure
+    task_instance.email_alert(error, failure_context["task"])
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3163, in email_alert
+    _email_alert(task_instance=self, exception=exception, task=task)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 1065, in _email_alert
+    send_email(task.email, subject, html_content_err)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 80, in send_email
+    return backend(
+           ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 154, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 273, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/email.py", line 317, in _get_smtp_connection
+    return smtplib.SMTP(host=host, port=port, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 853, in create_connection
+    raise exceptions[0]
+  File "/usr/local/lib/python3.12/socket.py", line 838, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+[2025-10-10T05:00:26.080+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 317 for task retrain_model (Bash command failed. The command returned a non-zero exit code 1.; 1978)
+[2025-10-10T05:00:26.097+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2025-10-10T05:00:26.131+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-10-10T05:00:26.134+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

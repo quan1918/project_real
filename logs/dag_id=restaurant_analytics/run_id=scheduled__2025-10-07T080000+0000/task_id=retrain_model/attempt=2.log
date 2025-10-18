@@ -1,0 +1,33 @@
+[2025-10-07T09:05:14.412+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-07T09:05:14.748+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: restaurant_analytics.retrain_model scheduled__2025-10-07T08:00:00+00:00 [queued]>
+[2025-10-07T09:05:14.845+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: restaurant_analytics.retrain_model scheduled__2025-10-07T08:00:00+00:00 [queued]>
+[2025-10-07T09:05:14.854+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2025-10-07T09:05:15.014+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): retrain_model> on 2025-10-07 08:00:00+00:00
+[2025-10-07T09:05:15.091+0000] {standard_task_runner.py:64} INFO - Started process 4205 to run task
+[2025-10-07T09:05:15.257+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'restaurant_analytics', 'retrain_model', 'scheduled__2025-10-07T08:00:00+00:00', '--job-id', '31', '--raw', '--subdir', 'DAGS_FOLDER/restaurant_dag.py', '--cfg-path', '/tmp/tmp12c9v2ak']
+[2025-10-07T09:05:15.292+0000] {standard_task_runner.py:91} INFO - Job 31: Subtask retrain_model
+[2025-10-07T09:05:15.821+0000] {task_command.py:426} INFO - Running <TaskInstance: restaurant_analytics.retrain_model scheduled__2025-10-07T08:00:00+00:00 [running]> on host 50743b1a3092
+[2025-10-07T09:05:16.394+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='quantruong1918@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='restaurant_analytics' AIRFLOW_CTX_TASK_ID='retrain_model' AIRFLOW_CTX_EXECUTION_DATE='2025-10-07T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-10-07T08:00:00+00:00'
+[2025-10-07T09:05:16.427+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-07T09:05:16.441+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-10-07T09:05:16.448+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'spark-submit --master local[*] /opt/***/dags/train_lr.py']
+[2025-10-07T09:05:16.526+0000] {subprocess.py:86} INFO - Output:
+[2025-10-07T09:05:16.567+0000] {subprocess.py:93} INFO - /usr/bin/bash: line 1: spark-submit: command not found
+[2025-10-07T09:05:16.590+0000] {subprocess.py:97} INFO - Command exited with return code 127
+[2025-10-07T09:05:16.601+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-07T09:05:16.827+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 127.
+[2025-10-07T09:05:16.870+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=restaurant_analytics, task_id=retrain_model, run_id=scheduled__2025-10-07T08:00:00+00:00, execution_date=20251007T080000, start_date=20251007T090514, end_date=20251007T090516
+[2025-10-07T09:05:17.022+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 31 for task retrain_model (Bash command failed. The command returned a non-zero exit code 127.; 4205)
+[2025-10-07T09:05:17.086+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2025-10-07T09:05:17.230+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-10-07T09:05:17.266+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

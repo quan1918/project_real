@@ -1,0 +1,24 @@
+restaurant_dbt:
+  outputs:
+
+    dev:
+      type: postgres
+      threads: 1 
+      host: postgres
+      port: 5432
+      user: airflow
+      password: airflow
+      dbname: restaurant_db
+      schema: public
+
+    prod:
+      type: postgres
+      threads: [1 or more]
+      host: [host]
+      port: [port]
+      user: [prod_username]
+      pass: [prod_password]
+      dbname: [dbname]
+      schema: [prod_schema]
+
+  target: dev

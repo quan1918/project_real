@@ -1,0 +1,46 @@
+[2025-10-08T07:49:35.725+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-08T07:49:35.933+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: restaurant_analytics.retrain_model scheduled__2025-10-08T06:00:00+00:00 [queued]>
+[2025-10-08T07:49:36.007+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: restaurant_analytics.retrain_model scheduled__2025-10-08T06:00:00+00:00 [queued]>
+[2025-10-08T07:49:36.009+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2025-10-08T07:49:36.113+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): retrain_model> on 2025-10-08 06:00:00+00:00
+[2025-10-08T07:49:36.166+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=69) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-10-08T07:49:36.185+0000] {standard_task_runner.py:64} INFO - Started process 80 to run task
+[2025-10-08T07:49:36.185+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'restaurant_analytics', 'retrain_model', 'scheduled__2025-10-08T06:00:00+00:00', '--job-id', '161', '--raw', '--subdir', 'DAGS_FOLDER/restaurant_dag.py', '--cfg-path', '/tmp/tmppl3h8xr2']
+[2025-10-08T07:49:36.205+0000] {standard_task_runner.py:91} INFO - Job 161: Subtask retrain_model
+[2025-10-08T07:49:36.594+0000] {task_command.py:426} INFO - Running <TaskInstance: restaurant_analytics.retrain_model scheduled__2025-10-08T06:00:00+00:00 [running]> on host 26440191eecc
+[2025-10-08T07:49:37.069+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='quantruong1918@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='restaurant_analytics' AIRFLOW_CTX_TASK_ID='retrain_model' AIRFLOW_CTX_EXECUTION_DATE='2025-10-08T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-10-08T06:00:00+00:00'
+[2025-10-08T07:49:37.089+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-08T07:49:37.091+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-10-08T07:49:37.094+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '/opt/spark/bin/spark-submit --master local[*] /opt/***/dags/train_lr.py']
+[2025-10-08T07:49:37.169+0000] {subprocess.py:86} INFO - Output:
+[2025-10-08T07:49:58.454+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-10-08T07:49:58.456+0000] {subprocess.py:93} INFO -   File "/opt/***/dags/train_lr.py", line 2, in <module>
+[2025-10-08T07:49:58.461+0000] {subprocess.py:93} INFO -     from pyspark.ml.feature import VectorAssembler
+[2025-10-08T07:49:58.463+0000] {subprocess.py:93} INFO -   File "/opt/spark/python/lib/pyspark.zip/pyspark/ml/__init__.py", line 22, in <module>
+[2025-10-08T07:49:58.476+0000] {subprocess.py:93} INFO -   File "/opt/spark/python/lib/pyspark.zip/pyspark/ml/base.py", line 40, in <module>
+[2025-10-08T07:49:58.480+0000] {subprocess.py:93} INFO -   File "/opt/spark/python/lib/pyspark.zip/pyspark/ml/param/__init__.py", line 32, in <module>
+[2025-10-08T07:49:58.481+0000] {subprocess.py:93} INFO - ModuleNotFoundError: No module named 'numpy'
+[2025-10-08T07:49:58.626+0000] {subprocess.py:93} INFO - 25/10/08 07:49:58 INFO ShutdownHookManager: Shutdown hook called
+[2025-10-08T07:49:58.634+0000] {subprocess.py:93} INFO - 25/10/08 07:49:58 INFO ShutdownHookManager: Deleting directory /tmp/spark-bb320b8f-bb47-4436-94d7-0bd45354d7cf
+[2025-10-08T07:49:58.724+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-10-08T07:49:58.728+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-08T07:49:58.814+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-10-08T07:49:58.847+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=restaurant_analytics, task_id=retrain_model, run_id=scheduled__2025-10-08T06:00:00+00:00, execution_date=20251008T060000, start_date=20251008T074935, end_date=20251008T074958
+[2025-10-08T07:49:58.941+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 161 for task retrain_model (Bash command failed. The command returned a non-zero exit code 1.; 80)
+[2025-10-08T07:49:59.029+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2025-10-08T07:49:59.064+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

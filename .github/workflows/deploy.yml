@@ -1,0 +1,39 @@
+name: CI/CD - Build & Deploy Restaurant DAG
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Lấy source code từ repo
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      # 2️⃣ Cài Python (chỉ để chạy pip install nếu cần)
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      # 3️⃣ Cài dependency (nếu bạn build Docker image có dùng Python)
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt || echo "No requirements.txt found"
+
+      # 4️⃣ Login Docker Hub (dùng secret trong repo)
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      # 5️⃣ Build & Push Docker image
+      - name: Build and Push Docker image
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/project_real:latest .
+          docker push ${{ secrets.DOCKER_USERNAME }}/project_real:latest
+
+

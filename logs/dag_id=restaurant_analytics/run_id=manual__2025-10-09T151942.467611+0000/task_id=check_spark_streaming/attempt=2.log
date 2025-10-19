@@ -1,0 +1,48 @@
+[2025-10-09T15:24:54.922+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-09T15:24:54.968+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: restaurant_analytics.check_spark_streaming manual__2025-10-09T15:19:42.467611+00:00 [queued]>
+[2025-10-09T15:24:54.981+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: restaurant_analytics.check_spark_streaming manual__2025-10-09T15:19:42.467611+00:00 [queued]>
+[2025-10-09T15:24:54.991+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2025-10-09T15:24:55.013+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): check_spark_streaming> on 2025-10-09 15:19:42.467611+00:00
+[2025-10-09T15:24:55.027+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=3295) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-10-09T15:24:55.030+0000] {standard_task_runner.py:64} INFO - Started process 3297 to run task
+[2025-10-09T15:24:55.030+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'restaurant_analytics', 'check_spark_streaming', 'manual__2025-10-09T15:19:42.467611+00:00', '--job-id', '269', '--raw', '--subdir', 'DAGS_FOLDER/restaurant_dag.py', '--cfg-path', '/tmp/tmpiczo0okh']
+[2025-10-09T15:24:55.035+0000] {standard_task_runner.py:91} INFO - Job 269: Subtask check_spark_streaming
+[2025-10-09T15:24:55.138+0000] {task_command.py:426} INFO - Running <TaskInstance: restaurant_analytics.check_spark_streaming manual__2025-10-09T15:19:42.467611+00:00 [running]> on host dd5baa7fba45
+[2025-10-09T15:24:55.319+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='quantruong1918@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='restaurant_analytics' AIRFLOW_CTX_TASK_ID='check_spark_streaming' AIRFLOW_CTX_EXECUTION_DATE='2025-10-09T15:19:42.467611+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-09T15:19:42.467611+00:00'
+[2025-10-09T15:24:55.324+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-09T15:24:55.326+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-09T15:24:55.328+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/opt/airflow/dags/restaurant_dag.py", line 33, in check_streaming_status
+    resp = requests.get("http://spark-streaming:4040", timeout=5)
+           ^^^^^^^^
+NameError: name 'requests' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/restaurant_dag.py", line 39, in check_streaming_status
+    raise Exception(f"❌ Spark streaming service is NOT running or unreachable: {e}")
+Exception: ❌ Spark streaming service is NOT running or unreachable: name 'requests' is not defined
+[2025-10-09T15:24:55.370+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=restaurant_analytics, task_id=check_spark_streaming, run_id=manual__2025-10-09T15:19:42.467611+00:00, execution_date=20251009T151942, start_date=20251009T152454, end_date=20251009T152455
+[2025-10-09T15:24:55.417+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 269 for task check_spark_streaming (❌ Spark streaming service is NOT running or unreachable: name 'requests' is not defined; 3297)
+[2025-10-09T15:24:55.488+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2025-10-09T15:24:55.541+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-10-09T15:24:55.555+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
